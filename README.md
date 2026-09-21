@@ -44,7 +44,7 @@ grounding/safety/formatting examples are training-only.
 | Storage | SQLite tickets and escalation records persisted in a volume |
 | Observability | Optional Langfuse request/route/model/tool spans with redacted inputs/outputs and durations |
 
-## Local setup (PowerShell, Python 3.12)
+## Local setup (PowerShell, Python 3.11 or 3.12)
 
 ```powershell
 python -m venv .venv
@@ -194,3 +194,24 @@ The bundled Compose connection remains `http://support-agent:8000/v1`.
 Set the WebUI API key to `AGENT_API_KEY`; when the API variable is empty authentication
 is disabled (a client-required placeholder key is ignored). Compose requires a nonempty key.
 Only `tuwaiq-tech-support-agent` is listed; specialist names are rejected.
+
+## Windows test troubleshooting
+Run from the repository root using its interpreter: `.\.venv\Scripts\python.exe -m pytest -q`.
+Pytest discovers only the root `tests/` directory. A nested extracted repository can contain
+identically named test modules; collecting both copies causes `import file mismatch` errors.
+The nested copy is preserved, but it is not the authoritative test directory.
+
+If pytest reports `PermissionError: [WinError 5]` for its Windows temporary directory,
+choose a writable project-local temporary root in the current PowerShell session:
+
+```powershell
+New-Item -ItemType Directory -Force .cache/pytest-tmp | Out-Null
+$env:PYTEST_DEBUG_TEMPROOT = (Resolve-Path .cache/pytest-tmp).Path
+.\.venv\Scripts\python.exe -m pytest -q
+```
+
+Python 3.11.9 was exercised directly. Graph schemas use `typing_extensions.TypedDict`
+for Pydantic compatibility before Python 3.12. Model imports remain lazy; software tests
+do not download models. The Starlette/AnyIO BlockingPortal deprecation warning remains
+upstream and does not fail the tests. Real model acceptance still requires RUN_MODEL_TESTS=1
+and genuine evaluated artifacts; the default skip remains intentional.

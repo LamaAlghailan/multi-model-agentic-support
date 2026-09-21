@@ -1,5 +1,5 @@
 import json
-from typing import TypedDict, Any
+from typing_extensions import TypedDict
 from langgraph.graph import StateGraph, START, END
 from src.tools.selector import select_tools
 
@@ -27,20 +27,37 @@ def build_graph(router, qa, support, tools, observer):
 
     def qa_node(state):
         result = tools.invoke('knowledge_base_search', {'query': state['user_message'], 'limit': 1})
-        matches = result['data'].get('matches', []) if result['ok'] else []
+        if not result['ok']:
+            return {'route': 'escalate', 'reason': 'Knowledge base retrieval failed',
+                    'tool_results': [result], 'path': state['path'] + ['qa_node']}
+        matches = result['data'].get('matches', [])
         context = matches[0]['text'] if matches else ''
         if not context:
             return {'answer': 'The supplied knowledge base does not contain enough evidence to answer.',
                     'context': '', 'tool_results': [result], 'path': state['path'] + ['qa_node']}
-        with observer.span('model_b', {'question': state['user_message'], 'context': context}) as event:
-            prediction = qa.answer(state['user_message'], context)
-            event.update(prediction)
-        text = prediction['text']
+        try:
+            with observer.span('model_b', {'question': state['user_message'], 'context': context}) as event:
+                prediction = qa.answer(state['user_message'], context)
+                event.update(prediction)
+            text = prediction['text']
+        except Exception:
+            return {'route': 'escalate', 'reason': 'Model B failed', 'context': context,
+                    'tool_results': [result], 'path': state['path'] + ['qa_node']}
         answer = f"{text}\nSource: {matches[0]['id']} (course knowledge base)." if text else 'No supported answer span found.'
         return {'answer': answer, 'context': context, 'tool_results': [result], 'path': state['path'] + ['qa_node']}
 
     def tools_node(state):
-        results = [tools.invoke(name, args) for name, args in select_tools(state['user_message'], state['intent'])]
+        results = []
+        for name, args in select_tools(state['user_message'], state['intent']):
+            try:
+                result = tools.invoke(name, args)
+            except Exception:
+                # Preserve completed diagnostics without recording raw exception text.
+                result = {'tool': name, 'ok': False, 'backend': 'unknown',
+                          'data': {}, 'error': 'Tool execution failed'}
+            results.append(result)
+            if not result['ok']:
+                break
         if any(not result['ok'] for result in results):
             return {'route': 'escalate', 'reason': 'A required diagnostic tool failed', 'tool_results': results,
                     'path': state['path'] + ['tools_node']}
