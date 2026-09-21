@@ -1,0 +1,5 @@
+-r requirements.txt
+datasets==5.0.1
+scikit-learn==1.9.1
+pandas==3.0.6
+bitsandbytes; platform_system == "Linux"

@@ -1,0 +1,47 @@
+services:
+  support-agent:
+    build: .
+    env_file: .env
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - ./models:/app/models:ro
+      - ./reports:/app/reports:ro
+      - support-data:/app/runtime
+      - model-cache:/app/cache
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health', timeout=3)"]
+      interval: 30s
+      timeout: 5s
+      start_period: 180s
+      retries: 3
+  open-webui:
+    image: ${OPEN_WEBUI_IMAGE:-ghcr.io/open-webui/open-webui:main}
+    ports:
+      - "127.0.0.1:3000:8080"
+    environment:
+      OPENAI_API_BASE_URLS: http://support-agent:8000/v1
+      OPENAI_API_KEYS: ${AGENT_API_KEY:?Set AGENT_API_KEY in .env}
+      ENABLE_OPENAI_API: "true"
+      ENABLE_OLLAMA_API: "false"
+      ENABLE_DIRECT_CONNECTIONS: "false"
+      ENABLE_PERSISTENT_CONFIG: "false"
+      DEFAULT_MODELS: tuwaiq-tech-support-agent
+      WEBUI_SECRET_KEY: ${WEBUI_SECRET_KEY:?Set WEBUI_SECRET_KEY in .env}
+    volumes:
+      - openwebui:/app/backend/data
+    depends_on:
+      support-agent:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8080/health', timeout=3)"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 120s
+volumes:
+  support-data:
+  model-cache:
+  openwebui:

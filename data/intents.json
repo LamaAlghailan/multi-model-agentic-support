@@ -1,0 +1,962 @@
+[
+  {
+    "text": "I cannot sign in after resetting MFA.",
+    "intent": "authentication",
+    "label": 0
+  },
+  {
+    "text": "My password reset worked but login still fails.",
+    "intent": "authentication",
+    "label": 0
+  },
+  {
+    "text": "The authentication code from my authenticator app is rejected.",
+    "intent": "authentication",
+    "label": 0
+  },
+  {
+    "text": "I am locked out after too many login attempts.",
+    "intent": "authentication",
+    "label": 0
+  },
+  {
+    "text": "Single sign-on redirects me back to the login page.",
+    "intent": "authentication",
+    "label": 0
+  },
+  {
+    "text": "My session expires immediately after I sign in.",
+    "intent": "authentication",
+    "label": 0
+  },
+  {
+    "text": "The system says my token is invalid even after re-login.",
+    "intent": "authentication",
+    "label": 0
+  },
+  {
+    "text": "I lost access to my MFA device and cannot authenticate.",
+    "intent": "authentication",
+    "label": 0
+  },
+  {
+    "text": "The login page keeps saying incorrect credentials.",
+    "intent": "authentication",
+    "label": 0
+  },
+  {
+    "text": "OAuth login fails with an invalid grant error.",
+    "intent": "authentication",
+    "label": 0
+  },
+  {
+    "text": "My access token expired and refresh is not working.",
+    "intent": "authentication",
+    "label": 0
+  },
+  {
+    "text": "The service rejects my API authentication credentials.",
+    "intent": "authentication",
+    "label": 0
+  },
+  {
+    "text": "The user can reach the application but is repeatedly asked to log in.",
+    "intent": "authentication",
+    "label": 0
+  },
+  {
+    "text": "SSO succeeds for other users but my account is denied.",
+    "intent": "authentication",
+    "label": 0
+  },
+  {
+    "text": "The refresh token is present but the session cannot be renewed.",
+    "intent": "authentication",
+    "label": 0
+  },
+  {
+    "text": "I changed my password and now every device rejects my login.",
+    "intent": "authentication",
+    "label": 0
+  },
+  {
+    "text": "The API works for public routes but protected routes return unauthorized.",
+    "intent": "authentication",
+    "label": 0
+  },
+  {
+    "text": "Authentication succeeds locally but fails through the identity provider.",
+    "intent": "authentication",
+    "label": 0
+  },
+  {
+    "text": "My account is active but the application says access denied.",
+    "intent": "authentication",
+    "label": 0
+  },
+  {
+    "text": "The bearer token is included but the request is still rejected.",
+    "intent": "authentication",
+    "label": 0
+  },
+  {
+    "text": "I enrolled a new MFA device but verification codes do not work.",
+    "intent": "authentication",
+    "label": 0
+  },
+  {
+    "text": "The login callback returns an authentication error after SSO.",
+    "intent": "authentication",
+    "label": 0
+  },
+  {
+    "text": "Credentials that worked yesterday are suddenly rejected.",
+    "intent": "authentication",
+    "label": 0
+  },
+  {
+    "text": "I can open the site, but every secured action sends me back to sign in.",
+    "intent": "authentication",
+    "label": 0
+  },
+  {
+    "text": "The API times out only from the office VPN.",
+    "intent": "network",
+    "label": 1
+  },
+  {
+    "text": "I can reach the service locally but not over the network.",
+    "intent": "network",
+    "label": 1
+  },
+  {
+    "text": "DNS resolution fails for the internal hostname.",
+    "intent": "network",
+    "label": 1
+  },
+  {
+    "text": "The connection drops whenever I switch to the corporate network.",
+    "intent": "network",
+    "label": 1
+  },
+  {
+    "text": "Requests are blocked by the firewall.",
+    "intent": "network",
+    "label": 1
+  },
+  {
+    "text": "The server is reachable by IP but not by domain name.",
+    "intent": "network",
+    "label": 1
+  },
+  {
+    "text": "The VPN connects but internal services remain unreachable.",
+    "intent": "network",
+    "label": 1
+  },
+  {
+    "text": "I get connection refused when calling the remote host.",
+    "intent": "network",
+    "label": 1
+  },
+  {
+    "text": "Latency becomes very high from another subnet.",
+    "intent": "network",
+    "label": 1
+  },
+  {
+    "text": "The service works on Wi-Fi but not on Ethernet.",
+    "intent": "network",
+    "label": 1
+  },
+  {
+    "text": "The port is open locally but inaccessible from another machine.",
+    "intent": "network",
+    "label": 1
+  },
+  {
+    "text": "Packets are being dropped between the client and server.",
+    "intent": "network",
+    "label": 1
+  },
+  {
+    "text": "The API is healthy on the server but clients from another VLAN cannot reach it.",
+    "intent": "network",
+    "label": 1
+  },
+  {
+    "text": "Curl works inside the container host but fails from my laptop.",
+    "intent": "network",
+    "label": 1
+  },
+  {
+    "text": "The hostname resolves to the wrong address on the office network.",
+    "intent": "network",
+    "label": 1
+  },
+  {
+    "text": "Traffic reaches the load balancer but not the backend service.",
+    "intent": "network",
+    "label": 1
+  },
+  {
+    "text": "The request succeeds on mobile data but fails on the company network.",
+    "intent": "network",
+    "label": 1
+  },
+  {
+    "text": "A proxy is interfering with outbound HTTPS requests.",
+    "intent": "network",
+    "label": 1
+  },
+  {
+    "text": "The service becomes unreachable whenever the VPN tunnel is enabled.",
+    "intent": "network",
+    "label": 1
+  },
+  {
+    "text": "I can ping the machine but TCP connections to the application port fail.",
+    "intent": "network",
+    "label": 1
+  },
+  {
+    "text": "Connections from one subnet work while another subnet always times out.",
+    "intent": "network",
+    "label": 1
+  },
+  {
+    "text": "The client reports a TLS connection timeout before reaching the API.",
+    "intent": "network",
+    "label": 1
+  },
+  {
+    "text": "Internal DNS returns no record for the service name.",
+    "intent": "network",
+    "label": 1
+  },
+  {
+    "text": "Network access stopped after a firewall rule change.",
+    "intent": "network",
+    "label": 1
+  },
+  {
+    "text": "My Docker deployment exits immediately after startup.",
+    "intent": "deployment",
+    "label": 2
+  },
+  {
+    "text": "The container keeps restarting after deployment.",
+    "intent": "deployment",
+    "label": 2
+  },
+  {
+    "text": "The application works locally but fails after deployment.",
+    "intent": "deployment",
+    "label": 2
+  },
+  {
+    "text": "Docker Compose cannot start the support-agent service.",
+    "intent": "deployment",
+    "label": 2
+  },
+  {
+    "text": "The deployed service returns 503 after the new release.",
+    "intent": "deployment",
+    "label": 2
+  },
+  {
+    "text": "My image builds successfully but crashes in production.",
+    "intent": "deployment",
+    "label": 2
+  },
+  {
+    "text": "The container cannot find an environment variable at runtime.",
+    "intent": "deployment",
+    "label": 2
+  },
+  {
+    "text": "The deployment fails during the image build step.",
+    "intent": "deployment",
+    "label": 2
+  },
+  {
+    "text": "The service is healthy locally but unhealthy in Docker.",
+    "intent": "deployment",
+    "label": 2
+  },
+  {
+    "text": "The new release is stuck in a restart loop.",
+    "intent": "deployment",
+    "label": 2
+  },
+  {
+    "text": "The container starts but the exposed port is not reachable.",
+    "intent": "deployment",
+    "label": 2
+  },
+  {
+    "text": "Dokploy reports that the application failed to become healthy.",
+    "intent": "deployment",
+    "label": 2
+  },
+  {
+    "text": "The image was pushed successfully but the new container never becomes ready.",
+    "intent": "deployment",
+    "label": 2
+  },
+  {
+    "text": "My deployment succeeds, then the service exits a few seconds later.",
+    "intent": "deployment",
+    "label": 2
+  },
+  {
+    "text": "The Docker health check fails even though the app starts manually.",
+    "intent": "deployment",
+    "label": 2
+  },
+  {
+    "text": "The production container cannot locate a file that exists on my laptop.",
+    "intent": "deployment",
+    "label": 2
+  },
+  {
+    "text": "The release failed after changing environment variables in Dokploy.",
+    "intent": "deployment",
+    "label": 2
+  },
+  {
+    "text": "The container is running but Open WebUI cannot reach the backend service.",
+    "intent": "deployment",
+    "label": 2
+  },
+  {
+    "text": "A new image version deploys but the old version is still serving traffic.",
+    "intent": "deployment",
+    "label": 2
+  },
+  {
+    "text": "The service fails only after being packaged into the Docker image.",
+    "intent": "deployment",
+    "label": 2
+  },
+  {
+    "text": "The Compose stack starts PostgreSQL but the support-agent container crashes.",
+    "intent": "deployment",
+    "label": 2
+  },
+  {
+    "text": "The application cannot bind to the configured port after deployment.",
+    "intent": "deployment",
+    "label": 2
+  },
+  {
+    "text": "The build completes but Dokploy marks the release as failed.",
+    "intent": "deployment",
+    "label": 2
+  },
+  {
+    "text": "After redeployment, the API returns 503 even though it worked before.",
+    "intent": "deployment",
+    "label": 2
+  },
+  {
+    "text": "PostgreSQL connections are exhausted.",
+    "intent": "database",
+    "label": 3
+  },
+  {
+    "text": "The database connection pool is at 98 percent.",
+    "intent": "database",
+    "label": 3
+  },
+  {
+    "text": "Queries suddenly became very slow.",
+    "intent": "database",
+    "label": 3
+  },
+  {
+    "text": "The application cannot connect to PostgreSQL.",
+    "intent": "database",
+    "label": 3
+  },
+  {
+    "text": "I get too many connections errors from the database.",
+    "intent": "database",
+    "label": 3
+  },
+  {
+    "text": "A database transaction keeps timing out.",
+    "intent": "database",
+    "label": 3
+  },
+  {
+    "text": "The service reports a deadlock in PostgreSQL.",
+    "intent": "database",
+    "label": 3
+  },
+  {
+    "text": "The database says the relation does not exist.",
+    "intent": "database",
+    "label": 3
+  },
+  {
+    "text": "My SQL query returns duplicate records unexpectedly.",
+    "intent": "database",
+    "label": 3
+  },
+  {
+    "text": "The database migration failed halfway through.",
+    "intent": "database",
+    "label": 3
+  },
+  {
+    "text": "The application loses its database connection under load.",
+    "intent": "database",
+    "label": 3
+  },
+  {
+    "text": "PostgreSQL reports that the connection limit has been reached.",
+    "intent": "database",
+    "label": 3
+  },
+  {
+    "text": "Requests fail whenever the PostgreSQL pool reaches its maximum size.",
+    "intent": "database",
+    "label": 3
+  },
+  {
+    "text": "The API is up but database queries are timing out.",
+    "intent": "database",
+    "label": 3
+  },
+  {
+    "text": "A long-running SQL query is blocking other transactions.",
+    "intent": "database",
+    "label": 3
+  },
+  {
+    "text": "The application reports that the database connection was closed unexpectedly.",
+    "intent": "database",
+    "label": 3
+  },
+  {
+    "text": "PostgreSQL CPU usage is normal but queries are waiting on locks.",
+    "intent": "database",
+    "label": 3
+  },
+  {
+    "text": "The migration created some tables but failed before finishing.",
+    "intent": "database",
+    "label": 3
+  },
+  {
+    "text": "The service starts but cannot authenticate to the database.",
+    "intent": "database",
+    "label": 3
+  },
+  {
+    "text": "Rows are not being committed even though the insert request succeeds.",
+    "intent": "database",
+    "label": 3
+  },
+  {
+    "text": "The connection pool does not release idle PostgreSQL sessions.",
+    "intent": "database",
+    "label": 3
+  },
+  {
+    "text": "A query that used to finish quickly now takes several minutes.",
+    "intent": "database",
+    "label": 3
+  },
+  {
+    "text": "The database is reachable but the selected schema cannot be found.",
+    "intent": "database",
+    "label": 3
+  },
+  {
+    "text": "The API returns errors because all available database connections are busy.",
+    "intent": "database",
+    "label": 3
+  },
+  {
+    "text": "CUDA is available but training stays on CPU.",
+    "intent": "gpu",
+    "label": 4
+  },
+  {
+    "text": "PyTorch cannot detect my GPU.",
+    "intent": "gpu",
+    "label": 4
+  },
+  {
+    "text": "Training crashes with CUDA out of memory.",
+    "intent": "gpu",
+    "label": 4
+  },
+  {
+    "text": "The GPU utilization stays at zero during training.",
+    "intent": "gpu",
+    "label": 4
+  },
+  {
+    "text": "Torch says CUDA is not available.",
+    "intent": "gpu",
+    "label": 4
+  },
+  {
+    "text": "My model does not move to the GPU.",
+    "intent": "gpu",
+    "label": 4
+  },
+  {
+    "text": "The CUDA driver version is incompatible with PyTorch.",
+    "intent": "gpu",
+    "label": 4
+  },
+  {
+    "text": "Training is extremely slow even though a GPU is attached.",
+    "intent": "gpu",
+    "label": 4
+  },
+  {
+    "text": "I get a device mismatch between CPU and CUDA tensors.",
+    "intent": "gpu",
+    "label": 4
+  },
+  {
+    "text": "The GPU memory remains allocated after the training cell stops.",
+    "intent": "gpu",
+    "label": 4
+  },
+  {
+    "text": "Mixed precision training fails on my GPU.",
+    "intent": "gpu",
+    "label": 4
+  },
+  {
+    "text": "The notebook runtime has a GPU but Transformers is using CPU.",
+    "intent": "gpu",
+    "label": 4
+  },
+  {
+    "text": "nvidia-smi shows the GPU but torch.cuda.is_available returns false.",
+    "intent": "gpu",
+    "label": 4
+  },
+  {
+    "text": "The model is on CUDA but one input tensor is still on CPU.",
+    "intent": "gpu",
+    "label": 4
+  },
+  {
+    "text": "Training stops because there is not enough VRAM for the batch.",
+    "intent": "gpu",
+    "label": 4
+  },
+  {
+    "text": "The GPU is visible but utilization remains near zero during each epoch.",
+    "intent": "gpu",
+    "label": 4
+  },
+  {
+    "text": "My CUDA toolkit and installed PyTorch build do not match.",
+    "intent": "gpu",
+    "label": 4
+  },
+  {
+    "text": "Moving the model to cuda causes an out of memory exception.",
+    "intent": "gpu",
+    "label": 4
+  },
+  {
+    "text": "The runtime reports a GPU, but the Trainer selects the CPU device.",
+    "intent": "gpu",
+    "label": 4
+  },
+  {
+    "text": "I reduced the batch size but CUDA memory is still exhausted.",
+    "intent": "gpu",
+    "label": 4
+  },
+  {
+    "text": "The model loads on GPU but generation fails with a device error.",
+    "intent": "gpu",
+    "label": 4
+  },
+  {
+    "text": "GPU memory keeps increasing between training runs.",
+    "intent": "gpu",
+    "label": 4
+  },
+  {
+    "text": "bf16 is not supported on the selected GPU.",
+    "intent": "gpu",
+    "label": 4
+  },
+  {
+    "text": "Training became much slower after the process stopped using CUDA.",
+    "intent": "gpu",
+    "label": 4
+  },
+  {
+    "text": "The endpoint returns HTTP 422.",
+    "intent": "api",
+    "label": 5
+  },
+  {
+    "text": "My POST request returns a 500 error.",
+    "intent": "api",
+    "label": 5
+  },
+  {
+    "text": "The API responds with 401 Unauthorized.",
+    "intent": "api",
+    "label": 5
+  },
+  {
+    "text": "FastAPI rejects my request body as invalid.",
+    "intent": "api",
+    "label": 5
+  },
+  {
+    "text": "The endpoint returns 404 even though the route exists.",
+    "intent": "api",
+    "label": 5
+  },
+  {
+    "text": "The API returns 503 after deployment.",
+    "intent": "api",
+    "label": 5
+  },
+  {
+    "text": "My JSON payload does not match the request schema.",
+    "intent": "api",
+    "label": 5
+  },
+  {
+    "text": "The REST endpoint hangs without returning a response.",
+    "intent": "api",
+    "label": 5
+  },
+  {
+    "text": "The server returns method not allowed for my request.",
+    "intent": "api",
+    "label": 5
+  },
+  {
+    "text": "The API response is missing an expected field.",
+    "intent": "api",
+    "label": 5
+  },
+  {
+    "text": "FastAPI validation fails for one of the parameters.",
+    "intent": "api",
+    "label": 5
+  },
+  {
+    "text": "The client receives an internal server error from the endpoint.",
+    "intent": "api",
+    "label": 5
+  },
+  {
+    "text": "The request reaches FastAPI but Pydantic rejects one field.",
+    "intent": "api",
+    "label": 5
+  },
+  {
+    "text": "The endpoint accepts GET but rejects my POST request.",
+    "intent": "api",
+    "label": 5
+  },
+  {
+    "text": "The API returns a validation error for a required property.",
+    "intent": "api",
+    "label": 5
+  },
+  {
+    "text": "The response status is 200 but the JSON schema is wrong.",
+    "intent": "api",
+    "label": 5
+  },
+  {
+    "text": "The route works in Swagger but my client receives 422.",
+    "intent": "api",
+    "label": 5
+  },
+  {
+    "text": "The endpoint returns unauthorized even though the service itself is healthy.",
+    "intent": "api",
+    "label": 5
+  },
+  {
+    "text": "The API stops responding when I send a large request body.",
+    "intent": "api",
+    "label": 5
+  },
+  {
+    "text": "My request URL is correct but FastAPI says the route was not found.",
+    "intent": "api",
+    "label": 5
+  },
+  {
+    "text": "The server sends 500 whenever this endpoint is called.",
+    "intent": "api",
+    "label": 5
+  },
+  {
+    "text": "The JSON response cannot be parsed by the client.",
+    "intent": "api",
+    "label": 5
+  },
+  {
+    "text": "A required query parameter is missing from the API call.",
+    "intent": "api",
+    "label": 5
+  },
+  {
+    "text": "The chat completions endpoint rejects the request format.",
+    "intent": "api",
+    "label": 5
+  },
+  {
+    "text": "Which version of transformers supports this feature?",
+    "intent": "package",
+    "label": 6
+  },
+  {
+    "text": "Pip cannot resolve the package dependencies.",
+    "intent": "package",
+    "label": 6
+  },
+  {
+    "text": "I get a version conflict between torch and transformers.",
+    "intent": "package",
+    "label": 6
+  },
+  {
+    "text": "The package import fails after upgrading Python.",
+    "intent": "package",
+    "label": 6
+  },
+  {
+    "text": "Which accelerate version is compatible with this setup?",
+    "intent": "package",
+    "label": 6
+  },
+  {
+    "text": "Bitsandbytes fails to install in my environment.",
+    "intent": "package",
+    "label": 6
+  },
+  {
+    "text": "A library function disappeared after a package update.",
+    "intent": "package",
+    "label": 6
+  },
+  {
+    "text": "Pip says no matching distribution was found.",
+    "intent": "package",
+    "label": 6
+  },
+  {
+    "text": "The installed package version is different from the required one.",
+    "intent": "package",
+    "label": 6
+  },
+  {
+    "text": "PEFT and Transformers have incompatible versions.",
+    "intent": "package",
+    "label": 6
+  },
+  {
+    "text": "The dependency resolver reports conflicting requirements.",
+    "intent": "package",
+    "label": 6
+  },
+  {
+    "text": "Which version of LangGraph should I install?",
+    "intent": "package",
+    "label": 6
+  },
+  {
+    "text": "Installing TRL upgraded transformers and now my code no longer works.",
+    "intent": "package",
+    "label": 6
+  },
+  {
+    "text": "The import error started after I changed the PEFT version.",
+    "intent": "package",
+    "label": 6
+  },
+  {
+    "text": "Which bitsandbytes release supports this CUDA environment?",
+    "intent": "package",
+    "label": 6
+  },
+  {
+    "text": "Pip installs the package but Python still imports an older version.",
+    "intent": "package",
+    "label": 6
+  },
+  {
+    "text": "The requirements file contains incompatible dependency constraints.",
+    "intent": "package",
+    "label": 6
+  },
+  {
+    "text": "A method used in the notebook is missing from my installed transformers version.",
+    "intent": "package",
+    "label": 6
+  },
+  {
+    "text": "Accelerate needs a newer version than the one currently installed.",
+    "intent": "package",
+    "label": 6
+  },
+  {
+    "text": "The package installs on Linux but fails on my current Python version.",
+    "intent": "package",
+    "label": 6
+  },
+  {
+    "text": "I need to know which torch build matches this CUDA version.",
+    "intent": "package",
+    "label": 6
+  },
+  {
+    "text": "Updating one dependency breaks another library in the environment.",
+    "intent": "package",
+    "label": 6
+  },
+  {
+    "text": "The environment contains two conflicting versions of the same library.",
+    "intent": "package",
+    "label": 6
+  },
+  {
+    "text": "Which version of TRL works with my current PEFT installation?",
+    "intent": "package",
+    "label": 6
+  },
+  {
+    "text": "Explain what LoRA is.",
+    "intent": "general",
+    "label": 7
+  },
+  {
+    "text": "What is the difference between training and inference?",
+    "intent": "general",
+    "label": 7
+  },
+  {
+    "text": "What does fine-tuning mean?",
+    "intent": "general",
+    "label": 7
+  },
+  {
+    "text": "Explain QLoRA in simple terms.",
+    "intent": "general",
+    "label": 7
+  },
+  {
+    "text": "What is a tokenizer?",
+    "intent": "general",
+    "label": 7
+  },
+  {
+    "text": "Why do language models use attention?",
+    "intent": "general",
+    "label": 7
+  },
+  {
+    "text": "What is an embedding?",
+    "intent": "general",
+    "label": 7
+  },
+  {
+    "text": "Explain what a context window is.",
+    "intent": "general",
+    "label": 7
+  },
+  {
+    "text": "What is supervised fine-tuning?",
+    "intent": "general",
+    "label": 7
+  },
+  {
+    "text": "What is the difference between precision and recall?",
+    "intent": "general",
+    "label": 7
+  },
+  {
+    "text": "What does quantization do to a model?",
+    "intent": "general",
+    "label": 7
+  },
+  {
+    "text": "What is an agent in an AI system?",
+    "intent": "general",
+    "label": 7
+  },
+  {
+    "text": "Why do we split data into train validation and test sets?",
+    "intent": "general",
+    "label": 7
+  },
+  {
+    "text": "What is the purpose of a confidence threshold?",
+    "intent": "general",
+    "label": 7
+  },
+  {
+    "text": "Explain the difference between an encoder and a decoder model.",
+    "intent": "general",
+    "label": 7
+  },
+  {
+    "text": "What does a classification head do?",
+    "intent": "general",
+    "label": 7
+  },
+  {
+    "text": "Why do we use softmax after logits?",
+    "intent": "general",
+    "label": 7
+  },
+  {
+    "text": "What is cross entropy loss?",
+    "intent": "general",
+    "label": 7
+  },
+  {
+    "text": "What is overfitting?",
+    "intent": "general",
+    "label": 7
+  },
+  {
+    "text": "Why is macro F1 useful for classification?",
+    "intent": "general",
+    "label": 7
+  },
+  {
+    "text": "What does a router do in a multi-model system?",
+    "intent": "general",
+    "label": 7
+  },
+  {
+    "text": "What is dynamic padding?",
+    "intent": "general",
+    "label": 7
+  },
+  {
+    "text": "What is the difference between LoRA and full fine-tuning?",
+    "intent": "general",
+    "label": 7
+  },
+  {
+    "text": "Why do we need a Golden Set before deployment?",
+    "intent": "general",
+    "label": 7
+  }
+]

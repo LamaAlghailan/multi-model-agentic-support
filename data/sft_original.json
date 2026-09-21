@@ -1,0 +1,1362 @@
+[
+  {
+    "category": "troubleshooting",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "The service is slow after a configuration change. What should I check first?"
+      },
+      {
+        "role": "assistant",
+        "content": "Start with the change itself: compare the current configuration with the last known-good version. Then check service health, recent logs, and resource usage. If the slowdown began exactly after the change, revert only if the rollback is known to be safe and approved."
+      }
+    ]
+  },
+  {
+    "category": "troubleshooting",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "My application works locally but fails in the container."
+      },
+      {
+        "role": "assistant",
+        "content": "Check the container-specific differences in this order: environment variables, mounted files, network hostnames, exposed ports, and startup logs. A local success does not prove the container has the same filesystem, DNS, or configuration."
+      }
+    ]
+  },
+  {
+    "category": "troubleshooting",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Requests time out intermittently but the service is not fully down."
+      },
+      {
+        "role": "assistant",
+        "content": "Check whether the timeouts correlate with dependency latency, connection-pool saturation, or network failures. Inspect recent error logs and health metrics before restarting anything. Intermittent failures usually need evidence from the failing period."
+      }
+    ]
+  },
+  {
+    "category": "troubleshooting",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "The application restarts every few minutes."
+      },
+      {
+        "role": "assistant",
+        "content": "Inspect the application and container logs around each restart, then check the health check, memory usage, exit code, and environment configuration. Do not repeatedly restart the service before identifying why it exits."
+      }
+    ]
+  },
+  {
+    "category": "troubleshooting",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "One endpoint is slow but the rest of the API is fine."
+      },
+      {
+        "role": "assistant",
+        "content": "Focus on dependencies used by that endpoint: database queries, external API calls, file access, and input size. Compare its latency with a healthy endpoint and inspect traces or logs for the slow request path."
+      }
+    ]
+  },
+  {
+    "category": "troubleshooting",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "A feature stopped working after a package upgrade."
+      },
+      {
+        "role": "assistant",
+        "content": "Confirm the installed package versions, review the upgrade notes, and reproduce the failure in a clean environment. If the issue disappears after pinning the previous compatible version, document the compatibility constraint before changing production."
+      }
+    ]
+  },
+  {
+    "category": "troubleshooting",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "The API returns errors only under load."
+      },
+      {
+        "role": "assistant",
+        "content": "Check resource saturation and bounded dependencies first: database pool usage, worker concurrency, memory, CPU, and upstream rate limits. Correlate the errors with load metrics instead of assuming the API code itself is the only cause."
+      }
+    ]
+  },
+  {
+    "category": "troubleshooting",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "The same request succeeds sometimes and fails other times."
+      },
+      {
+        "role": "assistant",
+        "content": "Treat it as an intermittent issue. Compare successful and failed traces, timestamps, dependency health, and request inputs. Look for load, race conditions, network instability, or multiple backend instances with inconsistent configuration."
+      }
+    ]
+  },
+  {
+    "category": "tool_synthesis",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "User issue: API returns 503. Tool result: system_health_check(database) -> {'status':'degraded','connections_pct':91}."
+      },
+      {
+        "role": "assistant",
+        "content": "The API error is consistent with database pressure: the database is degraded and connection usage is at 91%. Check long-running transactions and pool saturation first. Avoid increasing limits until the source of the high connection usage is understood."
+      }
+    ]
+  },
+  {
+    "category": "tool_synthesis",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "User issue: training is slow. Tool result: {'gpu-worker': {'status':'healthy','gpu_utilization':74}}."
+      },
+      {
+        "role": "assistant",
+        "content": "The GPU worker is healthy and utilization is 74%, so there is no evidence that the GPU is idle. Next inspect data-loading throughput, batch size, CPU preprocessing, and whether the model is waiting on I/O."
+      }
+    ]
+  },
+  {
+    "category": "tool_synthesis",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "User issue: deployment failing. Tool result: health={'status':'unknown'}, prior_tickets=[]"
+      },
+      {
+        "role": "assistant",
+        "content": "The diagnostic evidence is insufficient because the service health is unknown and there are no matching prior tickets. Verify the deployed service name, inspect startup logs, and escalate if health cannot be established."
+      }
+    ]
+  },
+  {
+    "category": "tool_synthesis",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Tool result: {'errors':['ERROR database connection refused'], 'warnings':[], 'error_count':1}. What should I tell the user?"
+      },
+      {
+        "role": "assistant",
+        "content": "The log contains a database connection-refused error. Verify the database host, port, credentials, network reachability, and whether PostgreSQL is accepting connections. Do not claim the database is down unless a health check confirms it."
+      }
+    ]
+  },
+  {
+    "category": "tool_synthesis",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Ticket search found a prior case resolved by correcting an environment variable name. Current symptom is similar."
+      },
+      {
+        "role": "assistant",
+        "content": "The prior ticket is useful evidence, but first compare the current environment variable names and values with the documented configuration. If the same mismatch exists, correct it and verify service health before closing the case."
+      }
+    ]
+  },
+  {
+    "category": "tool_synthesis",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Health: API healthy, database degraded. User reports slow requests."
+      },
+      {
+        "role": "assistant",
+        "content": "The API process is healthy, but the degraded database can still explain slow requests. Check query latency, connection usage, locks, and long-running transactions before changing the API service."
+      }
+    ]
+  },
+  {
+    "category": "tool_synthesis",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Package lookup says transformers 4.56 is installed, but requirements.txt specifies 4.55."
+      },
+      {
+        "role": "assistant",
+        "content": "There is a version mismatch between the environment and the recorded requirement. Reproduce with the pinned 4.55 version or update the requirement only after compatibility is verified. Avoid assuming the newer version is automatically compatible."
+      }
+    ]
+  },
+  {
+    "category": "tool_synthesis",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Diagnostic runbook says status='needs_human' because service health is unknown."
+      },
+      {
+        "role": "assistant",
+        "content": "The automated diagnostics could not establish service health, so the case should be escalated with the user symptom, attempted checks, and the unknown-health result attached as evidence."
+      }
+    ]
+  },
+  {
+    "category": "grounding",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Use only this KB: 'The service listens on port 8000.' Which port is used?"
+      },
+      {
+        "role": "assistant",
+        "content": "The service uses port 8000."
+      }
+    ]
+  },
+  {
+    "category": "grounding",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Use only this KB: 'The health endpoint is /health.' What endpoint should I call?"
+      },
+      {
+        "role": "assistant",
+        "content": "Call `/health`."
+      }
+    ]
+  },
+  {
+    "category": "grounding",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Use only this KB: 'The database is PostgreSQL.' Which database is used?"
+      },
+      {
+        "role": "assistant",
+        "content": "PostgreSQL."
+      }
+    ]
+  },
+  {
+    "category": "grounding",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Use only this KB: 'Open WebUI is exposed on host port 3000.' Which host port is used?"
+      },
+      {
+        "role": "assistant",
+        "content": "The host port is 3000."
+      }
+    ]
+  },
+  {
+    "category": "grounding",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Answer only from this KB: 'MFA is required for protected administrator accounts.' Is MFA required for all users?"
+      },
+      {
+        "role": "assistant",
+        "content": "The KB only states that MFA is required for protected administrator accounts. It does not verify that MFA is required for all users."
+      }
+    ]
+  },
+  {
+    "category": "grounding",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Answer only from this KB: 'The model endpoint is /v1/chat/completions.' What database port is used?"
+      },
+      {
+        "role": "assistant",
+        "content": "The supplied KB does not contain the database port, so I cannot verify it."
+      }
+    ]
+  },
+  {
+    "category": "grounding",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "KB: 'HTTP 422 usually indicates request validation failure.' What does 422 mean here?"
+      },
+      {
+        "role": "assistant",
+        "content": "In this KB, HTTP 422 indicates request validation failure."
+      }
+    ]
+  },
+  {
+    "category": "grounding",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "KB: 'The application reads environment variables from .env at startup.' When are they loaded?"
+      },
+      {
+        "role": "assistant",
+        "content": "They are loaded at application startup."
+      }
+    ]
+  },
+  {
+    "category": "uncertainty",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Is the production database healthy right now?"
+      },
+      {
+        "role": "assistant",
+        "content": "I cannot verify the live production database state without a health or monitoring result. Run the database health check and use that evidence before concluding its status."
+      }
+    ]
+  },
+  {
+    "category": "uncertainty",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Why did our API fail at 3 AM yesterday?"
+      },
+      {
+        "role": "assistant",
+        "content": "I cannot determine the cause from the question alone. Check logs, traces, dependency health, and deployment events around 3 AM, then correlate the evidence."
+      }
+    ]
+  },
+  {
+    "category": "uncertainty",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Can you confirm this package version is safe for production?"
+      },
+      {
+        "role": "assistant",
+        "content": "Not from the version number alone. Verify compatibility with your tested dependency set, release notes, and staging results before calling it production-safe."
+      }
+    ]
+  },
+  {
+    "category": "uncertainty",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Do we definitely have a network problem?"
+      },
+      {
+        "role": "assistant",
+        "content": "There is not enough evidence to confirm a network problem. Check reachability, DNS, firewall behavior, and request traces before assigning the cause."
+      }
+    ]
+  },
+  {
+    "category": "uncertainty",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "The user says the GPU is broken. Is that confirmed?"
+      },
+      {
+        "role": "assistant",
+        "content": "No. A user report alone does not confirm GPU failure. Check CUDA availability, GPU health, device placement, and runtime errors."
+      }
+    ]
+  },
+  {
+    "category": "uncertainty",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Can you tell me which engineer caused this outage?"
+      },
+      {
+        "role": "assistant",
+        "content": "The available technical evidence does not establish individual responsibility. Focus on logs, changes, and system events that explain the failure."
+      }
+    ]
+  },
+  {
+    "category": "uncertainty",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Will increasing the database pool definitely fix the timeout?"
+      },
+      {
+        "role": "assistant",
+        "content": "No. Pool saturation can be a symptom of slow queries or leaked connections. Inspect long-running transactions and connection usage before increasing the limit."
+      }
+    ]
+  },
+  {
+    "category": "uncertainty",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "The service recovered after restart. Does that prove the root cause is fixed?"
+      },
+      {
+        "role": "assistant",
+        "content": "No. Recovery after a restart does not prove the root cause is fixed. Review the original failure evidence and confirm the condition does not recur."
+      }
+    ]
+  },
+  {
+    "category": "escalation",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Production database may be corrupted after a failed migration."
+      },
+      {
+        "role": "assistant",
+        "content": "Escalate this incident to human support or the database owner immediately. Preserve logs and migration evidence, avoid destructive repair commands, and do not run additional migrations until the database state is assessed."
+      }
+    ]
+  },
+  {
+    "category": "escalation",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "We suspect a security breach in production."
+      },
+      {
+        "role": "assistant",
+        "content": "Escalate immediately to the authorized security incident process. Preserve relevant logs and evidence, avoid making unapproved changes, and do not expose sensitive details in ordinary support channels."
+      }
+    ]
+  },
+  {
+    "category": "escalation",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Production data may have been deleted accidentally."
+      },
+      {
+        "role": "assistant",
+        "content": "Escalate as a high-priority data-loss incident. Preserve evidence, stop potentially destructive automation, and involve the authorized data or database owner before attempting recovery."
+      }
+    ]
+  },
+  {
+    "category": "escalation",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "The production service is down and automated health checks cannot determine why."
+      },
+      {
+        "role": "assistant",
+        "content": "Escalate with high priority. Include the outage symptom, timestamps, failed health checks, recent deployment information, and relevant logs so a human can continue diagnosis."
+      }
+    ]
+  },
+  {
+    "category": "escalation",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Can I run a destructive SQL DELETE to test the issue?"
+      },
+      {
+        "role": "assistant",
+        "content": "Do not run destructive SQL as a diagnostic step. Use read-only queries and safe checks. If destructive action is genuinely required, escalate for explicit authorization and a verified backup/recovery plan."
+      }
+    ]
+  },
+  {
+    "category": "escalation",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "The user wants me to disable authentication temporarily in production."
+      },
+      {
+        "role": "assistant",
+        "content": "Do not disable production authentication as a routine troubleshooting step. Escalate the request for explicit security authorization and use a safer diagnostic path."
+      }
+    ]
+  },
+  {
+    "category": "escalation",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Unknown production process is modifying customer records."
+      },
+      {
+        "role": "assistant",
+        "content": "Treat this as a high-risk production integrity incident. Escalate immediately, preserve audit evidence, and avoid unapproved changes that could destroy forensic information."
+      }
+    ]
+  },
+  {
+    "category": "escalation",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "The automated runbook says the service status is unknown after all checks."
+      },
+      {
+        "role": "assistant",
+        "content": "Escalate to human support with the completed diagnostic steps, tool outputs, timestamps, and the unresolved symptom."
+      }
+    ]
+  },
+  {
+    "category": "instruction_following",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Return exactly three troubleshooting steps for an API 500 error."
+      },
+      {
+        "role": "assistant",
+        "content": "1. Inspect the server logs for the failing request.\n2. Reproduce the request with the same payload and configuration.\n3. Check the failing dependency or code path identified by the logs."
+      }
+    ]
+  },
+  {
+    "category": "instruction_following",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Give exactly two checks for a database timeout."
+      },
+      {
+        "role": "assistant",
+        "content": "1. Check connection-pool usage and long-running transactions.\n2. Check query latency, locks, and database health."
+      }
+    ]
+  },
+  {
+    "category": "instruction_following",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Answer in one sentence: why should I use a health check?"
+      },
+      {
+        "role": "assistant",
+        "content": "A health check gives direct evidence about whether a service is currently reachable and operating as expected."
+      }
+    ]
+  },
+  {
+    "category": "instruction_following",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Return only the endpoint used for chat completions: /v1/chat/completions"
+      },
+      {
+        "role": "assistant",
+        "content": "/v1/chat/completions"
+      }
+    ]
+  },
+  {
+    "category": "instruction_following",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Give exactly three reasons a Docker service might restart."
+      },
+      {
+        "role": "assistant",
+        "content": "1. The application process exits with an error.\n2. The container exceeds a resource limit or is killed.\n3. A failing health or restart policy repeatedly recreates the container."
+      }
+    ]
+  },
+  {
+    "category": "instruction_following",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Give exactly two safe actions before changing production database limits."
+      },
+      {
+        "role": "assistant",
+        "content": "1. Inspect long-running transactions and connection usage.\n2. Verify the change in staging and ensure rollback or recovery is available."
+      }
+    ]
+  },
+  {
+    "category": "instruction_following",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Answer with YES or NO only: Does a 503 always prove the API code is broken?"
+      },
+      {
+        "role": "assistant",
+        "content": "NO"
+      }
+    ]
+  },
+  {
+    "category": "instruction_following",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "In one sentence, explain why logs matter."
+      },
+      {
+        "role": "assistant",
+        "content": "Logs provide time-stamped evidence of what the system reported when a failure or important event occurred."
+      }
+    ]
+  },
+  {
+    "category": "api",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "FastAPI returns 422 for my POST request."
+      },
+      {
+        "role": "assistant",
+        "content": "A 422 usually means request validation failed. Compare the request body, query parameters, and field types against the Pydantic schema, then reproduce the request with the exact payload."
+      }
+    ]
+  },
+  {
+    "category": "api",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "The endpoint returns 404 even though I added the route."
+      },
+      {
+        "role": "assistant",
+        "content": "Verify the application instance being served, the router prefix, the HTTP method, and the deployed version. A route can exist in local code while the running service is serving an older build or a different prefix."
+      }
+    ]
+  },
+  {
+    "category": "api",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "The API returns 401 on a protected route."
+      },
+      {
+        "role": "assistant",
+        "content": "Check that the Authorization header contains the expected bearer token, that the token is not expired, and that the route's authentication configuration matches the client."
+      }
+    ]
+  },
+  {
+    "category": "api",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "The API returns 500 for one payload."
+      },
+      {
+        "role": "assistant",
+        "content": "Inspect the server exception for that request and compare the failing payload with a successful one. A 500 means the server failed while processing the request; the logs should identify the failing code or dependency."
+      }
+    ]
+  },
+  {
+    "category": "api",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "The endpoint works in Swagger but not from my client."
+      },
+      {
+        "role": "assistant",
+        "content": "Compare the actual HTTP method, URL, headers, content type, and JSON body sent by Swagger with the client request. The difference usually reveals the mismatch."
+      }
+    ]
+  },
+  {
+    "category": "api",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "My chat endpoint rejects the request format."
+      },
+      {
+        "role": "assistant",
+        "content": "Validate that the request follows the expected chat-completions schema, including the `model` field and a `messages` list containing role/content objects."
+      }
+    ]
+  },
+  {
+    "category": "api",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "The API is healthy but responses are slow."
+      },
+      {
+        "role": "assistant",
+        "content": "A healthy process can still depend on a slow database or upstream service. Check request traces, dependency latency, connection pools, and resource usage."
+      }
+    ]
+  },
+  {
+    "category": "api",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "What should I check for HTTP 503?"
+      },
+      {
+        "role": "assistant",
+        "content": "Check service health and dependency health first, then review deployment changes and logs. A 503 indicates temporary unavailability but does not by itself identify the root cause."
+      }
+    ]
+  },
+  {
+    "category": "database",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "PostgreSQL says too many connections."
+      },
+      {
+        "role": "assistant",
+        "content": "Check active and idle sessions, application pool settings, and whether connections are being released. Inspect long-running transactions before increasing connection limits."
+      }
+    ]
+  },
+  {
+    "category": "database",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Queries became slow after a migration."
+      },
+      {
+        "role": "assistant",
+        "content": "Compare query plans and indexes before and after the migration, inspect locks and statistics, and verify whether the migration changed schema or data volume in a way that affects the query."
+      }
+    ]
+  },
+  {
+    "category": "database",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "The database is reachable but the app cannot connect."
+      },
+      {
+        "role": "assistant",
+        "content": "Check the application's database URL, credentials, hostname, port, TLS settings, and network path from the application environment. Reachability from another machine does not prove the app has the same access."
+      }
+    ]
+  },
+  {
+    "category": "database",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "A transaction keeps timing out."
+      },
+      {
+        "role": "assistant",
+        "content": "Inspect lock waits, transaction duration, slow queries, and connection health. Determine whether the timeout is caused by blocking, load, or an application-level timeout."
+      }
+    ]
+  },
+  {
+    "category": "database",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "The pool reaches 100% under load."
+      },
+      {
+        "role": "assistant",
+        "content": "Check whether connections are leaked or held by long-running work, then review pool size relative to database capacity. Increasing the pool without fixing slow or leaked connections can make the database less stable."
+      }
+    ]
+  },
+  {
+    "category": "database",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "A migration failed halfway through."
+      },
+      {
+        "role": "assistant",
+        "content": "Stop further production migrations, preserve the error and migration state, and verify which changes were committed. If there is any risk of corruption or partial destructive change, escalate to the database owner."
+      }
+    ]
+  },
+  {
+    "category": "database",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "We see deadlock errors."
+      },
+      {
+        "role": "assistant",
+        "content": "Identify the transactions and lock order involved, keep transactions short, and make competing operations acquire resources in a consistent order where possible."
+      }
+    ]
+  },
+  {
+    "category": "database",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "The app says relation does not exist."
+      },
+      {
+        "role": "assistant",
+        "content": "Verify the schema, table name, migration state, and database connection target. The application may be connected to the wrong database or schema."
+      }
+    ]
+  },
+  {
+    "category": "gpu",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "torch.cuda.is_available() returns False."
+      },
+      {
+        "role": "assistant",
+        "content": "Check whether the runtime has a GPU, verify the installed PyTorch build supports CUDA, and compare the CUDA/driver environment with the package requirements."
+      }
+    ]
+  },
+  {
+    "category": "gpu",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "The model is on CUDA but I get a device mismatch."
+      },
+      {
+        "role": "assistant",
+        "content": "Check every tensor used in the operation, including labels and auxiliary tensors. The model and all participating tensors must be on compatible devices."
+      }
+    ]
+  },
+  {
+    "category": "gpu",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Training crashes with CUDA out of memory."
+      },
+      {
+        "role": "assistant",
+        "content": "Reduce batch size or sequence length first, then consider gradient accumulation, mixed precision, checkpointing, or a smaller model. Clear stale references only after understanding the memory peak."
+      }
+    ]
+  },
+  {
+    "category": "gpu",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "GPU utilization is near zero."
+      },
+      {
+        "role": "assistant",
+        "content": "Verify the model and inputs are actually on CUDA, then check whether the workload is waiting on data loading, CPU preprocessing, synchronization, or very small batches."
+      }
+    ]
+  },
+  {
+    "category": "gpu",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "bf16 training fails."
+      },
+      {
+        "role": "assistant",
+        "content": "Check whether the selected GPU supports bfloat16. If not, use fp16 where supported or fp32 for compatibility."
+      }
+    ]
+  },
+  {
+    "category": "gpu",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "GPU memory stays allocated after training."
+      },
+      {
+        "role": "assistant",
+        "content": "Delete references to large tensors or models if they are no longer needed, run garbage collection if appropriate, and clear the CUDA cache only after confirming no active objects still reference the memory."
+      }
+    ]
+  },
+  {
+    "category": "gpu",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "The runtime has a GPU but Trainer uses CPU."
+      },
+      {
+        "role": "assistant",
+        "content": "Check `torch.cuda.is_available()`, the installed PyTorch build, runtime device configuration, and whether environment variables or launcher settings are disabling CUDA."
+      }
+    ]
+  },
+  {
+    "category": "gpu",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "The CUDA driver and PyTorch versions appear incompatible."
+      },
+      {
+        "role": "assistant",
+        "content": "Compare the installed PyTorch CUDA build with the driver capability and use a supported combination. Reinstalling random versions can create more conflicts, so verify the compatibility matrix first."
+      }
+    ]
+  },
+  {
+    "category": "deployment",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "The Docker container exits immediately."
+      },
+      {
+        "role": "assistant",
+        "content": "Inspect the container exit code and startup logs first. Then verify the command, required environment variables, mounted files, and whether the application can bind to its configured port."
+      }
+    ]
+  },
+  {
+    "category": "deployment",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "The service works locally but returns 503 after deployment."
+      },
+      {
+        "role": "assistant",
+        "content": "Check the deployed health endpoint, dependency health, container logs, environment variables, and network connectivity. Compare the deployed configuration with the working local configuration."
+      }
+    ]
+  },
+  {
+    "category": "deployment",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Docker Compose starts PostgreSQL but the app crashes."
+      },
+      {
+        "role": "assistant",
+        "content": "Check whether the application is using the Compose service hostname, whether PostgreSQL is ready before the app connects, and whether the configured credentials and database name match the container settings."
+      }
+    ]
+  },
+  {
+    "category": "deployment",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "The container starts but I cannot reach port 8000."
+      },
+      {
+        "role": "assistant",
+        "content": "Verify the application is listening on the expected interface and port, confirm the Docker port mapping, and check host firewall or reverse-proxy configuration."
+      }
+    ]
+  },
+  {
+    "category": "deployment",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "The new image deploys but behavior looks old."
+      },
+      {
+        "role": "assistant",
+        "content": "Verify the running image digest or tag, confirm the service was recreated, and check for stale replicas or caches. Do not rely only on the image tag name."
+      }
+    ]
+  },
+  {
+    "category": "deployment",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "The container cannot find a local file."
+      },
+      {
+        "role": "assistant",
+        "content": "Files on the host are not automatically present inside the container. Verify the file is copied into the image or mounted at the expected container path."
+      }
+    ]
+  },
+  {
+    "category": "deployment",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "Dokploy marks the release unhealthy."
+      },
+      {
+        "role": "assistant",
+        "content": "Check the configured health check, the service logs, exposed port, startup time, and dependency availability. An unhealthy release may be running but failing its readiness criteria."
+      }
+    ]
+  },
+  {
+    "category": "deployment",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a technical support specialist.\nUse supplied evidence when available.\nDo not invent live system facts.\nIf the issue is high-risk, destructive, security-sensitive, or cannot be verified, escalate clearly.\nGive concise, actionable troubleshooting steps."
+      },
+      {
+        "role": "user",
+        "content": "The app cannot read an environment variable in Docker."
+      },
+      {
+        "role": "assistant",
+        "content": "Verify the variable is defined in the container environment or env file, confirm its exact name and case, and recreate the container after changing environment configuration."
+      }
+    ]
+  }
+]

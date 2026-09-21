@@ -1,0 +1,715 @@
+{
+  "mode": "demo_fixtures",
+  "threshold": 0.8,
+  "results": {
+    "A": {
+      "accuracy": 1.0,
+      "precision_macro": 1.0,
+      "recall_macro": 1.0,
+      "f1_macro": 1.0,
+      "per_class_recall": {
+        "qa": 1.0,
+        "tools": 1.0,
+        "support": 1.0,
+        "escalate": 1.0
+      },
+      "confusion_matrix": [
+        [
+          3,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          5,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          5,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          3
+        ]
+      ],
+      "latency_ms_mean": 0.0616687502770219,
+      "llm_calls": 0,
+      "invalid_json_rate": 0,
+      "llm_failures": 0,
+      "details": [
+        {
+          "text": "Production database corruption suspected after migration",
+          "route": "escalate",
+          "prediction": {
+            "route": "escalate",
+            "intent": "database",
+            "confidence": 1.0,
+            "reason": "High-risk incident or destructive action requires human review"
+          },
+          "latency_ms": 0.5080999690108001,
+          "correct": true
+        },
+        {
+          "text": "We suspect a security breach in production",
+          "route": "escalate",
+          "prediction": {
+            "route": "escalate",
+            "intent": "general",
+            "confidence": 1.0,
+            "reason": "High-risk incident or destructive action requires human review"
+          },
+          "latency_ms": 0.016000005416572094,
+          "correct": true
+        },
+        {
+          "text": "Run DELETE FROM tickets to check connectivity",
+          "route": "escalate",
+          "prediction": {
+            "route": "escalate",
+            "intent": "general",
+            "confidence": 1.0,
+            "reason": "High-risk incident or destructive action requires human review"
+          },
+          "latency_ms": 0.00790000194683671,
+          "correct": true
+        },
+        {
+          "text": "According to the deployment guide which port must be exposed?",
+          "route": "qa",
+          "prediction": {
+            "route": "qa",
+            "intent": "deployment",
+            "confidence": 0.9,
+            "reason": "Model A classification"
+          },
+          "latency_ms": 0.13029994443058968,
+          "correct": true
+        },
+        {
+          "text": "Which endpoint lists models according to the documentation?",
+          "route": "qa",
+          "prediction": {
+            "route": "qa",
+            "intent": "general",
+            "confidence": 0.4,
+            "reason": "Model A classification"
+          },
+          "latency_ms": 0.025300018023699522,
+          "correct": true
+        },
+        {
+          "text": "What does the KB say about pool limits?",
+          "route": "qa",
+          "prediction": {
+            "route": "qa",
+            "intent": "database",
+            "confidence": 0.9,
+            "reason": "Model A classification"
+          },
+          "latency_ms": 0.016000005416572094,
+          "correct": true
+        },
+        {
+          "text": "The PostgreSQL pool is exhausted under load",
+          "route": "tools",
+          "prediction": {
+            "route": "tools",
+            "intent": "database",
+            "confidence": 0.9,
+            "reason": "Model A classification"
+          },
+          "latency_ms": 0.01479999627918005,
+          "correct": true
+        },
+        {
+          "text": "GPU memory is exhausted",
+          "route": "tools",
+          "prediction": {
+            "route": "tools",
+            "intent": "gpu",
+            "confidence": 0.9,
+            "reason": "Model A classification"
+          },
+          "latency_ms": 0.01580000389367342,
+          "correct": true
+        },
+        {
+          "text": "API responses show 422 for this payload",
+          "route": "tools",
+          "prediction": {
+            "route": "tools",
+            "intent": "api",
+            "confidence": 0.9,
+            "reason": "Model A classification"
+          },
+          "latency_ms": 0.016900012269616127,
+          "correct": true
+        },
+        {
+          "text": "My VPN cannot resolve internal DNS names",
+          "route": "tools",
+          "prediction": {
+            "route": "tools",
+            "intent": "network",
+            "confidence": 0.9,
+            "reason": "Model A classification"
+          },
+          "latency_ms": 0.012999982573091984,
+          "correct": true
+        },
+        {
+          "text": "Pip reports conflicting package dependencies",
+          "route": "tools",
+          "prediction": {
+            "route": "tools",
+            "intent": "deployment",
+            "confidence": 0.9,
+            "reason": "Model A classification"
+          },
+          "latency_ms": 0.031100003980100155,
+          "correct": true
+        },
+        {
+          "text": "Explain attention in a language model",
+          "route": "support",
+          "prediction": {
+            "route": "support",
+            "intent": "general",
+            "confidence": 0.4,
+            "reason": "Model A classification"
+          },
+          "latency_ms": 0.12040004367008805,
+          "correct": true
+        },
+        {
+          "text": "How does parameter efficient fine tuning work?",
+          "route": "support",
+          "prediction": {
+            "route": "support",
+            "intent": "general",
+            "confidence": 0.4,
+            "reason": "Model A classification"
+          },
+          "latency_ms": 0.022599997464567423,
+          "correct": true
+        },
+        {
+          "text": "Why use a validation set?",
+          "route": "support",
+          "prediction": {
+            "route": "support",
+            "intent": "general",
+            "confidence": 0.4,
+            "reason": "Model A classification"
+          },
+          "latency_ms": 0.015600002370774746,
+          "correct": true
+        },
+        {
+          "text": "Could you explain this to me?",
+          "route": "support",
+          "prediction": {
+            "route": "support",
+            "intent": "general",
+            "confidence": 0.4,
+            "reason": "Model A classification"
+          },
+          "latency_ms": 0.016700010746717453,
+          "correct": true
+        },
+        {
+          "text": "The service is behaving strangely",
+          "route": "support",
+          "prediction": {
+            "route": "support",
+            "intent": "general",
+            "confidence": 0.4,
+            "reason": "Model A classification"
+          },
+          "latency_ms": 0.016200006939470768,
+          "correct": true
+        }
+      ]
+    },
+    "B": {
+      "accuracy": 1.0,
+      "precision_macro": 1.0,
+      "recall_macro": 1.0,
+      "f1_macro": 1.0,
+      "per_class_recall": {
+        "qa": 1.0,
+        "tools": 1.0,
+        "support": 1.0,
+        "escalate": 1.0
+      },
+      "confusion_matrix": [
+        [
+          3,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          5,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          5,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          3
+        ]
+      ],
+      "latency_ms_mean": 0.05090625199954957,
+      "llm_calls": 13,
+      "invalid_json_rate": 0.0,
+      "llm_failures": 0,
+      "details": [
+        {
+          "text": "Production database corruption suspected after migration",
+          "route": "escalate",
+          "prediction": {
+            "route": "escalate",
+            "intent": "database",
+            "confidence": 1.0,
+            "reason": "High-risk incident or destructive action requires human review"
+          },
+          "latency_ms": 0.048600020818412304,
+          "correct": true
+        },
+        {
+          "text": "We suspect a security breach in production",
+          "route": "escalate",
+          "prediction": {
+            "route": "escalate",
+            "intent": "general",
+            "confidence": 1.0,
+            "reason": "High-risk incident or destructive action requires human review"
+          },
+          "latency_ms": 0.01850002445280552,
+          "correct": true
+        },
+        {
+          "text": "Run DELETE FROM tickets to check connectivity",
+          "route": "escalate",
+          "prediction": {
+            "route": "escalate",
+            "intent": "general",
+            "confidence": 1.0,
+            "reason": "High-risk incident or destructive action requires human review"
+          },
+          "latency_ms": 0.011300027836114168,
+          "correct": true
+        },
+        {
+          "text": "According to the deployment guide which port must be exposed?",
+          "route": "qa",
+          "prediction": {
+            "route": "qa",
+            "intent": "deployment",
+            "confidence": 0.5,
+            "reason": "Demo fixture"
+          },
+          "latency_ms": 0.32320001628249884,
+          "correct": true
+        },
+        {
+          "text": "Which endpoint lists models according to the documentation?",
+          "route": "qa",
+          "prediction": {
+            "route": "qa",
+            "intent": "general",
+            "confidence": 0.5,
+            "reason": "Demo fixture"
+          },
+          "latency_ms": 0.06529997335746884,
+          "correct": true
+        },
+        {
+          "text": "What does the KB say about pool limits?",
+          "route": "qa",
+          "prediction": {
+            "route": "qa",
+            "intent": "database",
+            "confidence": 0.5,
+            "reason": "Demo fixture"
+          },
+          "latency_ms": 0.049600028432905674,
+          "correct": true
+        },
+        {
+          "text": "The PostgreSQL pool is exhausted under load",
+          "route": "tools",
+          "prediction": {
+            "route": "tools",
+            "intent": "database",
+            "confidence": 0.5,
+            "reason": "Demo fixture"
+          },
+          "latency_ms": 0.030399998649954796,
+          "correct": true
+        },
+        {
+          "text": "GPU memory is exhausted",
+          "route": "tools",
+          "prediction": {
+            "route": "tools",
+            "intent": "gpu",
+            "confidence": 0.5,
+            "reason": "Demo fixture"
+          },
+          "latency_ms": 0.026899971999228,
+          "correct": true
+        },
+        {
+          "text": "API responses show 422 for this payload",
+          "route": "tools",
+          "prediction": {
+            "route": "tools",
+            "intent": "api",
+            "confidence": 0.5,
+            "reason": "Demo fixture"
+          },
+          "latency_ms": 0.028399983420968056,
+          "correct": true
+        },
+        {
+          "text": "My VPN cannot resolve internal DNS names",
+          "route": "tools",
+          "prediction": {
+            "route": "tools",
+            "intent": "network",
+            "confidence": 0.5,
+            "reason": "Demo fixture"
+          },
+          "latency_ms": 0.024100008886307478,
+          "correct": true
+        },
+        {
+          "text": "Pip reports conflicting package dependencies",
+          "route": "tools",
+          "prediction": {
+            "route": "tools",
+            "intent": "deployment",
+            "confidence": 0.5,
+            "reason": "Demo fixture"
+          },
+          "latency_ms": 0.02540001878514886,
+          "correct": true
+        },
+        {
+          "text": "Explain attention in a language model",
+          "route": "support",
+          "prediction": {
+            "route": "support",
+            "intent": "general",
+            "confidence": 0.5,
+            "reason": "Demo fixture"
+          },
+          "latency_ms": 0.03330002073198557,
+          "correct": true
+        },
+        {
+          "text": "How does parameter efficient fine tuning work?",
+          "route": "support",
+          "prediction": {
+            "route": "support",
+            "intent": "general",
+            "confidence": 0.5,
+            "reason": "Demo fixture"
+          },
+          "latency_ms": 0.03260001540184021,
+          "correct": true
+        },
+        {
+          "text": "Why use a validation set?",
+          "route": "support",
+          "prediction": {
+            "route": "support",
+            "intent": "general",
+            "confidence": 0.5,
+            "reason": "Demo fixture"
+          },
+          "latency_ms": 0.02789997961372137,
+          "correct": true
+        },
+        {
+          "text": "Could you explain this to me?",
+          "route": "support",
+          "prediction": {
+            "route": "support",
+            "intent": "general",
+            "confidence": 0.5,
+            "reason": "Demo fixture"
+          },
+          "latency_ms": 0.033999967854470015,
+          "correct": true
+        },
+        {
+          "text": "The service is behaving strangely",
+          "route": "support",
+          "prediction": {
+            "route": "support",
+            "intent": "general",
+            "confidence": 0.5,
+            "reason": "Demo fixture"
+          },
+          "latency_ms": 0.034999975468963385,
+          "correct": true
+        }
+      ]
+    },
+    "Hybrid": {
+      "accuracy": 1.0,
+      "precision_macro": 1.0,
+      "recall_macro": 1.0,
+      "f1_macro": 1.0,
+      "per_class_recall": {
+        "qa": 1.0,
+        "tools": 1.0,
+        "support": 1.0,
+        "escalate": 1.0
+      },
+      "confusion_matrix": [
+        [
+          3,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          5,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          5,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          3
+        ]
+      ],
+      "latency_ms_mean": 0.059075002354802564,
+      "llm_calls": 6,
+      "invalid_json_rate": 0.0,
+      "llm_failures": 0,
+      "details": [
+        {
+          "text": "Production database corruption suspected after migration",
+          "route": "escalate",
+          "prediction": {
+            "route": "escalate",
+            "intent": "database",
+            "confidence": 1.0,
+            "reason": "High-risk incident or destructive action requires human review"
+          },
+          "latency_ms": 0.042600033339113,
+          "correct": true
+        },
+        {
+          "text": "We suspect a security breach in production",
+          "route": "escalate",
+          "prediction": {
+            "route": "escalate",
+            "intent": "general",
+            "confidence": 1.0,
+            "reason": "High-risk incident or destructive action requires human review"
+          },
+          "latency_ms": 0.016600009985268116,
+          "correct": true
+        },
+        {
+          "text": "Run DELETE FROM tickets to check connectivity",
+          "route": "escalate",
+          "prediction": {
+            "route": "escalate",
+            "intent": "general",
+            "confidence": 1.0,
+            "reason": "High-risk incident or destructive action requires human review"
+          },
+          "latency_ms": 0.010700023267418146,
+          "correct": true
+        },
+        {
+          "text": "According to the deployment guide which port must be exposed?",
+          "route": "qa",
+          "prediction": {
+            "route": "qa",
+            "intent": "deployment",
+            "confidence": 0.9,
+            "reason": "Model A confidence meets validation-selected threshold"
+          },
+          "latency_ms": 0.03779999678954482,
+          "correct": true
+        },
+        {
+          "text": "Which endpoint lists models according to the documentation?",
+          "route": "qa",
+          "prediction": {
+            "route": "qa",
+            "intent": "general",
+            "confidence": 0.5,
+            "reason": "Demo fixture"
+          },
+          "latency_ms": 0.08919998072087765,
+          "correct": true
+        },
+        {
+          "text": "What does the KB say about pool limits?",
+          "route": "qa",
+          "prediction": {
+            "route": "qa",
+            "intent": "database",
+            "confidence": 0.9,
+            "reason": "Model A confidence meets validation-selected threshold"
+          },
+          "latency_ms": 0.027100031729787588,
+          "correct": true
+        },
+        {
+          "text": "The PostgreSQL pool is exhausted under load",
+          "route": "tools",
+          "prediction": {
+            "route": "tools",
+            "intent": "database",
+            "confidence": 0.9,
+            "reason": "Model A confidence meets validation-selected threshold"
+          },
+          "latency_ms": 0.025300018023699522,
+          "correct": true
+        },
+        {
+          "text": "GPU memory is exhausted",
+          "route": "tools",
+          "prediction": {
+            "route": "tools",
+            "intent": "gpu",
+            "confidence": 0.9,
+            "reason": "Model A confidence meets validation-selected threshold"
+          },
+          "latency_ms": 0.02239999594166875,
+          "correct": true
+        },
+        {
+          "text": "API responses show 422 for this payload",
+          "route": "tools",
+          "prediction": {
+            "route": "tools",
+            "intent": "api",
+            "confidence": 0.9,
+            "reason": "Model A confidence meets validation-selected threshold"
+          },
+          "latency_ms": 0.028399983420968056,
+          "correct": true
+        },
+        {
+          "text": "My VPN cannot resolve internal DNS names",
+          "route": "tools",
+          "prediction": {
+            "route": "tools",
+            "intent": "network",
+            "confidence": 0.9,
+            "reason": "Model A confidence meets validation-selected threshold"
+          },
+          "latency_ms": 0.020299979951232672,
+          "correct": true
+        },
+        {
+          "text": "Pip reports conflicting package dependencies",
+          "route": "tools",
+          "prediction": {
+            "route": "tools",
+            "intent": "deployment",
+            "confidence": 0.9,
+            "reason": "Model A confidence meets validation-selected threshold"
+          },
+          "latency_ms": 0.01910002902150154,
+          "correct": true
+        },
+        {
+          "text": "Explain attention in a language model",
+          "route": "support",
+          "prediction": {
+            "route": "support",
+            "intent": "general",
+            "confidence": 0.5,
+            "reason": "Demo fixture"
+          },
+          "latency_ms": 0.05370000144466758,
+          "correct": true
+        },
+        {
+          "text": "How does parameter efficient fine tuning work?",
+          "route": "support",
+          "prediction": {
+            "route": "support",
+            "intent": "general",
+            "confidence": 0.5,
+            "reason": "Demo fixture"
+          },
+          "latency_ms": 0.25159999495372176,
+          "correct": true
+        },
+        {
+          "text": "Why use a validation set?",
+          "route": "support",
+          "prediction": {
+            "route": "support",
+            "intent": "general",
+            "confidence": 0.5,
+            "reason": "Demo fixture"
+          },
+          "latency_ms": 0.0811999780125916,
+          "correct": true
+        },
+        {
+          "text": "Could you explain this to me?",
+          "route": "support",
+          "prediction": {
+            "route": "support",
+            "intent": "general",
+            "confidence": 0.5,
+            "reason": "Demo fixture"
+          },
+          "latency_ms": 0.07740000728517771,
+          "correct": true
+        },
+        {
+          "text": "The service is behaving strangely",
+          "route": "support",
+          "prediction": {
+            "route": "support",
+            "intent": "general",
+            "confidence": 0.5,
+            "reason": "Demo fixture"
+          },
+          "latency_ms": 0.14179997378960252,
+          "correct": true
+        }
+      ]
+    }
+  },
+  "limitations": "Single warm-process run on a small fixed set; latency is environment-specific."
+}

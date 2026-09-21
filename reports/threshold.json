@@ -1,0 +1,69 @@
+{
+  "selected_threshold": 0.3,
+  "policy_qualified": true,
+  "rows": [
+    {
+      "threshold": 0.2,
+      "coverage": 1.0,
+      "accepted_accuracy": 0.875,
+      "accepted_examples": 24
+    },
+    {
+      "threshold": 0.3,
+      "coverage": 0.9583333333333334,
+      "accepted_accuracy": 0.9130434782608695,
+      "accepted_examples": 23
+    },
+    {
+      "threshold": 0.4,
+      "coverage": 0.9166666666666666,
+      "accepted_accuracy": 0.9090909090909091,
+      "accepted_examples": 22
+    },
+    {
+      "threshold": 0.5,
+      "coverage": 0.8333333333333334,
+      "accepted_accuracy": 0.95,
+      "accepted_examples": 20
+    },
+    {
+      "threshold": 0.6,
+      "coverage": 0.7083333333333334,
+      "accepted_accuracy": 1.0,
+      "accepted_examples": 17
+    },
+    {
+      "threshold": 0.7,
+      "coverage": 0.4583333333333333,
+      "accepted_accuracy": 1.0,
+      "accepted_examples": 11
+    },
+    {
+      "threshold": 0.8,
+      "coverage": 0.20833333333333334,
+      "accepted_accuracy": 1.0,
+      "accepted_examples": 5
+    },
+    {
+      "threshold": 0.9,
+      "coverage": 0.125,
+      "accepted_accuracy": 1.0,
+      "accepted_examples": 3
+    },
+    {
+      "threshold": 0.95,
+      "coverage": 0.0,
+      "accepted_accuracy": null,
+      "accepted_examples": 0
+    },
+    {
+      "threshold": 1.0,
+      "coverage": 0.0,
+      "accepted_accuracy": null,
+      "accepted_examples": 0
+    }
+  ],
+  "selection_split": "validation",
+  "target_accuracy": 0.9,
+  "minimum_coverage": 0.5
+}

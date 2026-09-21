@@ -1,0 +1,31 @@
+{
+  "source_commit": "b6107550c03693a3f3df4758f01c4699cc7bd86c",
+  "provenance": "Committed notebook outputs, not rerun metrics; some outputs are stale relative to source.",
+  "model_a": {
+    "baseline_f1_macro": 0.0125,
+    "test_f1_macro": 0.778571,
+    "accuracy": 0.833333,
+    "minimum_class_recall": 0.0,
+    "gate": false,
+    "threshold": 0.8,
+    "validation_coverage": 0.0
+  },
+  "model_b": {
+    "baseline_exact_match": 0.0,
+    "baseline_token_f1": 0.017857142857142856,
+    "exact_match": 0.0,
+    "token_f1": 0.017241379310344827,
+    "gate": false
+  },
+  "model_c": {
+    "base": "HuggingFaceTB/SmolLM2-360M-Instruct",
+    "baseline_loss": 3.818921,
+    "loss": 3.33998,
+    "baseline_perplexity": 45.55501,
+    "perplexity": 28.218559,
+    "baseline_rouge_l": 0.178079,
+    "rouge_l": 0.170094,
+    "golden_pass_rate": 0.3,
+    "gate": false
+  }
+}

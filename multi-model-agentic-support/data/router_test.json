@@ -1,0 +1,18 @@
+[
+  {"text":"Production database corruption suspected after migration", "route":"escalate"},
+  {"text":"We suspect a security breach in production", "route":"escalate"},
+  {"text":"Run DELETE FROM tickets to check connectivity", "route":"escalate"},
+  {"text":"According to the deployment guide which port must be exposed?", "route":"qa"},
+  {"text":"Which endpoint lists models according to the documentation?", "route":"qa"},
+  {"text":"What does the KB say about pool limits?", "route":"qa"},
+  {"text":"The PostgreSQL pool is exhausted under load", "route":"tools"},
+  {"text":"GPU memory is exhausted", "route":"tools"},
+  {"text":"API responses show 422 for this payload", "route":"tools"},
+  {"text":"My VPN cannot resolve internal DNS names", "route":"tools"},
+  {"text":"Pip reports conflicting package dependencies", "route":"tools"},
+  {"text":"Explain attention in a language model", "route":"support"},
+  {"text":"How does parameter efficient fine tuning work?", "route":"support"},
+  {"text":"Why use a validation set?", "route":"support"},
+  {"text":"Could you explain this to me?", "route":"support"},
+  {"text":"The service is behaving strangely", "route":"support"}
+]

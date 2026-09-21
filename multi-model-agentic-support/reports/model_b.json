@@ -1,0 +1,283 @@
+{
+  "exact_match": 0.0,
+  "token_f1": 0.10333333333333333,
+  "details": [
+    {
+      "id": "qa-040",
+      "prediction": "DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs",
+      "gold": "/health",
+      "windows": 2,
+      "exact_match": 0.0,
+      "token_f1": 0.0
+    },
+    {
+      "id": "qa-041",
+      "prediction": "DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs",
+      "gold": "the HTTP status and response time",
+      "windows": 2,
+      "exact_match": 0.0,
+      "token_f1": 0.16
+    },
+    {
+      "id": "qa-042",
+      "prediction": "DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs",
+      "gold": "restarted repeatedly",
+      "windows": 2,
+      "exact_match": 0.0,
+      "token_f1": 0.0
+    },
+    {
+      "id": "qa-043",
+      "prediction": "DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs",
+      "gold": "support-agent",
+      "windows": 2,
+      "exact_match": 0.0,
+      "token_f1": 0.0
+    },
+    {
+      "id": "qa-044",
+      "prediction": "PostgreSQL services",
+      "gold": "90 percent",
+      "windows": 2,
+      "exact_match": 0.0,
+      "token_f1": 0.0
+    },
+    {
+      "id": "qa-045",
+      "prediction": "PostgreSQL services",
+      "gold": "long-running transactions",
+      "windows": 2,
+      "exact_match": 0.0,
+      "token_f1": 0.0
+    },
+    {
+      "id": "qa-046",
+      "prediction": "PostgreSQL services",
+      "gold": "PostgreSQL",
+      "windows": 2,
+      "exact_match": 0.0,
+      "token_f1": 0.6666666666666666
+    },
+    {
+      "id": "qa-047",
+      "prediction": "PostgreSQL services",
+      "gold": "escalated",
+      "windows": 2,
+      "exact_match": 0.0,
+      "token_f1": 0.0
+    }
+  ],
+  "baseline_validation": {
+    "exact_match": 0.0,
+    "token_f1": 0.07070506335212218,
+    "details": [
+      {
+        "id": "qa-032",
+        "prediction": ", while Open WebUI",
+        "gold": "Docker Compose",
+        "windows": 1,
+        "exact_match": 0.0,
+        "token_f1": 0.0
+      },
+      {
+        "id": "qa-033",
+        "prediction": ", while Open WebUI is available on host port 3000. PostgreSQL stores persistent data in a named volume. The support-",
+        "gold": "8000",
+        "windows": 1,
+        "exact_match": 0.0,
+        "token_f1": 0.0
+      },
+      {
+        "id": "qa-034",
+        "prediction": ", while Open WebUI is available on host port 3000. PostgreSQL stores persistent data in a named volume. The support-",
+        "gold": "3000",
+        "windows": 1,
+        "exact_match": 0.0,
+        "token_f1": 0.1111111111111111
+      },
+      {
+        "id": "qa-035",
+        "prediction": ", while Open WebUI is available on host port 3000. PostgreSQL stores persistent data in a named volume. The support-",
+        "gold": "the .env file",
+        "windows": 1,
+        "exact_match": 0.0,
+        "token_f1": 0.0
+      },
+      {
+        "id": "qa-036",
+        "prediction": ", and resolution. New tickets are created with status open. Escalated incidents use high priority and include the reason plus supporting evidence. Ticket search returns prior cases that may contain useful resolutions. A ticket should",
+        "gold": "open",
+        "windows": 1,
+        "exact_match": 0.0,
+        "token_f1": 0.06060606060606061
+      },
+      {
+        "id": "qa-037",
+        "prediction": ", and resolution. New tickets are created with status open. Escalated incidents use high priority and include the reason plus supporting evidence. Ticket search returns prior cases that may contain useful resolutions. A ticket should",
+        "gold": "high priority",
+        "windows": 1,
+        "exact_match": 0.0,
+        "token_f1": 0.11764705882352941
+      },
+      {
+        "id": "qa-038",
+        "prediction": ", and resolution. New tickets are created with status open. Escalated incidents use high priority and include the reason plus supporting evidence. Ticket search returns prior cases that may contain useful resolutions. A ticket should",
+        "gold": "the reason plus supporting evidence",
+        "windows": 1,
+        "exact_match": 0.0,
+        "token_f1": 0.2222222222222222
+      },
+      {
+        "id": "qa-039",
+        "prediction": ", and resolution. New tickets are created with status open. Escalated incidents use high priority and include the reason plus supporting evidence. Ticket search returns prior cases that may contain useful resolutions. A ticket should",
+        "gold": "until the resolution has been verified",
+        "windows": 1,
+        "exact_match": 0.0,
+        "token_f1": 0.05405405405405406
+      }
+    ]
+  },
+  "validation": {
+    "exact_match": 0.125,
+    "token_f1": 0.19545454545454546,
+    "details": [
+      {
+        "id": "qa-032",
+        "prediction": "8000",
+        "gold": "Docker Compose",
+        "windows": 1,
+        "exact_match": 0.0,
+        "token_f1": 0.0
+      },
+      {
+        "id": "qa-033",
+        "prediction": "8000",
+        "gold": "8000",
+        "windows": 1,
+        "exact_match": 1.0,
+        "token_f1": 1.0
+      },
+      {
+        "id": "qa-034",
+        "prediction": "8000",
+        "gold": "3000",
+        "windows": 1,
+        "exact_match": 0.0,
+        "token_f1": 0.0
+      },
+      {
+        "id": "qa-035",
+        "prediction": "8000",
+        "gold": "the .env file",
+        "windows": 1,
+        "exact_match": 0.0,
+        "token_f1": 0.0
+      },
+      {
+        "id": "qa-036",
+        "prediction": "useful resolutions",
+        "gold": "open",
+        "windows": 1,
+        "exact_match": 0.0,
+        "token_f1": 0.0
+      },
+      {
+        "id": "qa-037",
+        "prediction": "high priority and include the reason plus supporting evidence. Ticket search returns prior cases that may contain useful resolutions",
+        "gold": "high priority",
+        "windows": 1,
+        "exact_match": 0.0,
+        "token_f1": 0.2
+      },
+      {
+        "id": "qa-038",
+        "prediction": "high priority and include the reason plus supporting evidence. Ticket search returns prior cases that may contain useful resolutions",
+        "gold": "the reason plus supporting evidence",
+        "windows": 1,
+        "exact_match": 0.0,
+        "token_f1": 0.36363636363636365
+      },
+      {
+        "id": "qa-039",
+        "prediction": "high priority and include the reason plus supporting evidence. Ticket search returns prior cases that may contain useful resolutions",
+        "gold": "until the resolution has been verified",
+        "windows": 1,
+        "exact_match": 0.0,
+        "token_f1": 0.0
+      }
+    ]
+  },
+  "baseline_test": {
+    "exact_match": 0.0,
+    "token_f1": 0.017857142857142856,
+    "details": [
+      {
+        "id": "qa-040",
+        "prediction": ", and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment",
+        "gold": "/health",
+        "windows": 2,
+        "exact_match": 0.0,
+        "token_f1": 0.0
+      },
+      {
+        "id": "qa-041",
+        "prediction": ", and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment",
+        "gold": "the HTTP status and response time",
+        "windows": 2,
+        "exact_match": 0.0,
+        "token_f1": 0.14285714285714285
+      },
+      {
+        "id": "qa-042",
+        "prediction": ", and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status,",
+        "gold": "restarted repeatedly",
+        "windows": 2,
+        "exact_match": 0.0,
+        "token_f1": 0.0
+      },
+      {
+        "id": "qa-043",
+        "prediction": ", and service logs. General checks include verifying DNS,",
+        "gold": "support-agent",
+        "windows": 2,
+        "exact_match": 0.0,
+        "token_f1": 0.0
+      },
+      {
+        "id": "qa-044",
+        "prediction": ", and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage",
+        "gold": "90 percent",
+        "windows": 2,
+        "exact_match": 0.0,
+        "token_f1": 0.0
+      },
+      {
+        "id": "qa-045",
+        "prediction": ", and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage",
+        "gold": "long-running transactions",
+        "windows": 2,
+        "exact_match": 0.0,
+        "token_f1": 0.0
+      },
+      {
+        "id": "qa-046",
+        "prediction": ", and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage",
+        "gold": "PostgreSQL",
+        "windows": 2,
+        "exact_match": 0.0,
+        "token_f1": 0.0
+      },
+      {
+        "id": "qa-047",
+        "prediction": ", and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage",
+        "gold": "escalated",
+        "windows": 2,
+        "exact_match": 0.0,
+        "token_f1": 0.0
+      }
+    ]
+  },
+  "reload_ok": true,
+  "artifact": "C:\\Users\\lamaa\\Documents\\Codex\\2026-09-20\\https-github-com-lamaalghailan-multi-model\\outputs\\multi-model-agentic-support\\models\\qa_model",
+  "gate": false
+}

@@ -1,0 +1,42 @@
+{
+  "health": {
+    "status": "ok",
+    "mode": "demo",
+    "models_verified": false
+  },
+  "models": {
+    "object": "list",
+    "data": [
+      {
+        "id": "tuwaiq-tech-support-agent",
+        "object": "model",
+        "created": 0,
+        "owned_by": "tuwaiq"
+      }
+    ]
+  },
+  "chat": {
+    "id": "chatcmpl-35b41c9479bb4731ab6be3ee2d78dd45",
+    "object": "chat.completion",
+    "created": 1789898847,
+    "model": "tuwaiq-tech-support-agent",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Human review required. Escalation 1 recorded locally; no human has been notified. Contact your authorized support owner and preserve relevant evidence. Avoid destructive changes."
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "system_metadata": {
+      "trace_id": "35b41c9479bb4731ab6be3ee2d78dd45",
+      "route": "escalate",
+      "intent": "database",
+      "confidence": 1.0,
+      "mode": "demo",
+      "latency_seconds": 0.02983060001861304
+    }
+  }
+}

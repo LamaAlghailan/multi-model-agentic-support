@@ -1,0 +1,386 @@
+[
+  {
+    "id": "qa-000",
+    "doc_id": "deployment",
+    "question": "Which port must the application expose?",
+    "context": "The support-agent service runs inside a Docker container. The application listens on port 8000, and the container must expose port 8000. A healthy deployment should return HTTP 200 from the /health endpoint. Environment variables are loaded from the .env file at container startup. If the container repeatedly restarts, inspect the application logs before changing deployment settings.",
+    "answer_text": "8000",
+    "answer_start": 90
+  },
+  {
+    "id": "qa-001",
+    "doc_id": "deployment",
+    "question": "Which endpoint should return HTTP 200 for a healthy deployment?",
+    "context": "The support-agent service runs inside a Docker container. The application listens on port 8000, and the container must expose port 8000. A healthy deployment should return HTTP 200 from the /health endpoint. Environment variables are loaded from the .env file at container startup. If the container repeatedly restarts, inspect the application logs before changing deployment settings.",
+    "answer_text": "/health",
+    "answer_start": 190
+  },
+  {
+    "id": "qa-002",
+    "doc_id": "deployment",
+    "question": "Where are environment variables loaded from?",
+    "context": "The support-agent service runs inside a Docker container. The application listens on port 8000, and the container must expose port 8000. A healthy deployment should return HTTP 200 from the /health endpoint. Environment variables are loaded from the .env file at container startup. If the container repeatedly restarts, inspect the application logs before changing deployment settings.",
+    "answer_text": "the .env file",
+    "answer_start": 246
+  },
+  {
+    "id": "qa-003",
+    "doc_id": "deployment",
+    "question": "What should be inspected when the container repeatedly restarts?",
+    "context": "The support-agent service runs inside a Docker container. The application listens on port 8000, and the container must expose port 8000. A healthy deployment should return HTTP 200 from the /health endpoint. Environment variables are loaded from the .env file at container startup. If the container repeatedly restarts, inspect the application logs before changing deployment settings.",
+    "answer_text": "the application logs",
+    "answer_start": 328
+  },
+  {
+    "id": "qa-004",
+    "doc_id": "database",
+    "question": "Which database does the support platform use?",
+    "context": "The support platform uses PostgreSQL as its primary relational database. The default maximum application connection pool is 20 connections. When pool utilization remains above 90 percent, new requests may wait for an available connection. Long-running transactions should be inspected before increasing the pool size. Database migrations must be backed up and tested before production execution.",
+    "answer_text": "PostgreSQL",
+    "answer_start": 26
+  },
+  {
+    "id": "qa-005",
+    "doc_id": "database",
+    "question": "What is the default maximum application connection pool?",
+    "context": "The support platform uses PostgreSQL as its primary relational database. The default maximum application connection pool is 20 connections. When pool utilization remains above 90 percent, new requests may wait for an available connection. Long-running transactions should be inspected before increasing the pool size. Database migrations must be backed up and tested before production execution.",
+    "answer_text": "20 connections",
+    "answer_start": 124
+  },
+  {
+    "id": "qa-006",
+    "doc_id": "database",
+    "question": "Above what utilization may new requests wait for a connection?",
+    "context": "The support platform uses PostgreSQL as its primary relational database. The default maximum application connection pool is 20 connections. When pool utilization remains above 90 percent, new requests may wait for an available connection. Long-running transactions should be inspected before increasing the pool size. Database migrations must be backed up and tested before production execution.",
+    "answer_text": "90 percent",
+    "answer_start": 176
+  },
+  {
+    "id": "qa-007",
+    "doc_id": "database",
+    "question": "What should be inspected before increasing the pool size?",
+    "context": "The support platform uses PostgreSQL as its primary relational database. The default maximum application connection pool is 20 connections. When pool utilization remains above 90 percent, new requests may wait for an available connection. Long-running transactions should be inspected before increasing the pool size. Database migrations must be backed up and tested before production execution.",
+    "answer_text": "Long-running transactions",
+    "answer_start": 239
+  },
+  {
+    "id": "qa-008",
+    "doc_id": "gpu",
+    "question": "Which framework is used for GPU workloads?",
+    "context": "The training worker uses PyTorch for GPU workloads. CUDA availability should be checked with torch.cuda.is_available(). If CUDA is available, the model and input tensors must be placed on the same CUDA device. CUDA out-of-memory errors should first be addressed by reducing batch size or sequence length. The lab uses mixed precision only when the selected GPU supports it.",
+    "answer_text": "PyTorch",
+    "answer_start": 25
+  },
+  {
+    "id": "qa-009",
+    "doc_id": "gpu",
+    "question": "How should CUDA availability be checked?",
+    "context": "The training worker uses PyTorch for GPU workloads. CUDA availability should be checked with torch.cuda.is_available(). If CUDA is available, the model and input tensors must be placed on the same CUDA device. CUDA out-of-memory errors should first be addressed by reducing batch size or sequence length. The lab uses mixed precision only when the selected GPU supports it.",
+    "answer_text": "torch.cuda.is_available()",
+    "answer_start": 93
+  },
+  {
+    "id": "qa-010",
+    "doc_id": "gpu",
+    "question": "What must be on the same CUDA device?",
+    "context": "The training worker uses PyTorch for GPU workloads. CUDA availability should be checked with torch.cuda.is_available(). If CUDA is available, the model and input tensors must be placed on the same CUDA device. CUDA out-of-memory errors should first be addressed by reducing batch size or sequence length. The lab uses mixed precision only when the selected GPU supports it.",
+    "answer_text": "the model and input tensors",
+    "answer_start": 142
+  },
+  {
+    "id": "qa-011",
+    "doc_id": "gpu",
+    "question": "What should be reduced first for CUDA out-of-memory errors?",
+    "context": "The training worker uses PyTorch for GPU workloads. CUDA availability should be checked with torch.cuda.is_available(). If CUDA is available, the model and input tensors must be placed on the same CUDA device. CUDA out-of-memory errors should first be addressed by reducing batch size or sequence length. The lab uses mixed precision only when the selected GPU supports it.",
+    "answer_text": "batch size or sequence length",
+    "answer_start": 274
+  },
+  {
+    "id": "qa-012",
+    "doc_id": "api",
+    "question": "Which endpoint handles unified chat completions?",
+    "context": "The technical-support API is implemented with FastAPI. The unified chat endpoint is /v1/chat/completions. The model discovery endpoint is /v1/models, and the service health endpoint is /health. HTTP 422 usually indicates request validation failure, while HTTP 503 indicates that the service is temporarily unavailable or a dependency is unhealthy.",
+    "answer_text": "/v1/chat/completions",
+    "answer_start": 84
+  },
+  {
+    "id": "qa-013",
+    "doc_id": "api",
+    "question": "Which endpoint lists models?",
+    "context": "The technical-support API is implemented with FastAPI. The unified chat endpoint is /v1/chat/completions. The model discovery endpoint is /v1/models, and the service health endpoint is /health. HTTP 422 usually indicates request validation failure, while HTTP 503 indicates that the service is temporarily unavailable or a dependency is unhealthy.",
+    "answer_text": "/v1/models",
+    "answer_start": 138
+  },
+  {
+    "id": "qa-014",
+    "doc_id": "api",
+    "question": "What does HTTP 422 usually indicate?",
+    "context": "The technical-support API is implemented with FastAPI. The unified chat endpoint is /v1/chat/completions. The model discovery endpoint is /v1/models, and the service health endpoint is /health. HTTP 422 usually indicates request validation failure, while HTTP 503 indicates that the service is temporarily unavailable or a dependency is unhealthy.",
+    "answer_text": "request validation failure,",
+    "answer_start": 221
+  },
+  {
+    "id": "qa-015",
+    "doc_id": "api",
+    "question": "What does HTTP 503 indicate?",
+    "context": "The technical-support API is implemented with FastAPI. The unified chat endpoint is /v1/chat/completions. The model discovery endpoint is /v1/models, and the service health endpoint is /health. HTTP 422 usually indicates request validation failure, while HTTP 503 indicates that the service is temporarily unavailable or a dependency is unhealthy.",
+    "answer_text": "that the service is temporarily unavailable or a dependency is unhealthy.",
+    "answer_start": 274
+  },
+  {
+    "id": "qa-016",
+    "doc_id": "auth",
+    "question": "Where is a bearer token sent?",
+    "context": "The support portal uses access tokens for authenticated requests. A bearer token is sent in the Authorization header. Expired access tokens must be refreshed before protected endpoints are called. Repeated invalid login attempts may temporarily lock an account. MFA verification is required for users whose accounts have multi-factor authentication enabled.",
+    "answer_text": "Authorization header",
+    "answer_start": 96
+  },
+  {
+    "id": "qa-017",
+    "doc_id": "auth",
+    "question": "What must happen to expired access tokens?",
+    "context": "The support portal uses access tokens for authenticated requests. A bearer token is sent in the Authorization header. Expired access tokens must be refreshed before protected endpoints are called. Repeated invalid login attempts may temporarily lock an account. MFA verification is required for users whose accounts have multi-factor authentication enabled.",
+    "answer_text": "refreshed",
+    "answer_start": 148
+  },
+  {
+    "id": "qa-018",
+    "doc_id": "auth",
+    "question": "What can repeated invalid login attempts do?",
+    "context": "The support portal uses access tokens for authenticated requests. A bearer token is sent in the Authorization header. Expired access tokens must be refreshed before protected endpoints are called. Repeated invalid login attempts may temporarily lock an account. MFA verification is required for users whose accounts have multi-factor authentication enabled.",
+    "answer_text": "temporarily lock an account",
+    "answer_start": 233
+  },
+  {
+    "id": "qa-019",
+    "doc_id": "auth",
+    "question": "What is required for users with multi-factor authentication enabled?",
+    "context": "The support portal uses access tokens for authenticated requests. A bearer token is sent in the Authorization header. Expired access tokens must be refreshed before protected endpoints are called. Repeated invalid login attempts may temporarily lock an account. MFA verification is required for users whose accounts have multi-factor authentication enabled.",
+    "answer_text": "MFA verification",
+    "answer_start": 262
+  },
+  {
+    "id": "qa-020",
+    "doc_id": "packages",
+    "question": "Where should Python package versions be recorded?",
+    "context": "The Python environment should use versions recorded in requirements.txt. Transformers provides the model and tokenizer APIs, Accelerate supports device-aware training, and PEFT provides parameter-efficient fine-tuning utilities. bitsandbytes is used only on supported Linux/CUDA environments. Dependency conflicts should be resolved in a clean virtual environment before deployment.",
+    "answer_text": "requirements.txt",
+    "answer_start": 55
+  },
+  {
+    "id": "qa-021",
+    "doc_id": "packages",
+    "question": "Which library supports device-aware training?",
+    "context": "The Python environment should use versions recorded in requirements.txt. Transformers provides the model and tokenizer APIs, Accelerate supports device-aware training, and PEFT provides parameter-efficient fine-tuning utilities. bitsandbytes is used only on supported Linux/CUDA environments. Dependency conflicts should be resolved in a clean virtual environment before deployment.",
+    "answer_text": "Accelerate",
+    "answer_start": 125
+  },
+  {
+    "id": "qa-022",
+    "doc_id": "packages",
+    "question": "Which library provides parameter-efficient fine-tuning utilities?",
+    "context": "The Python environment should use versions recorded in requirements.txt. Transformers provides the model and tokenizer APIs, Accelerate supports device-aware training, and PEFT provides parameter-efficient fine-tuning utilities. bitsandbytes is used only on supported Linux/CUDA environments. Dependency conflicts should be resolved in a clean virtual environment before deployment.",
+    "answer_text": "PEFT",
+    "answer_start": 172
+  },
+  {
+    "id": "qa-023",
+    "doc_id": "packages",
+    "question": "Where should dependency conflicts be resolved?",
+    "context": "The Python environment should use versions recorded in requirements.txt. Transformers provides the model and tokenizer APIs, Accelerate supports device-aware training, and PEFT provides parameter-efficient fine-tuning utilities. bitsandbytes is used only on supported Linux/CUDA environments. Dependency conflicts should be resolved in a clean virtual environment before deployment.",
+    "answer_text": "a clean virtual environment",
+    "answer_start": 336
+  },
+  {
+    "id": "qa-024",
+    "doc_id": "routing",
+    "question": "What does the production routing policy use first?",
+    "context": "The production routing policy uses hard safety rules first. A fine-tuned classifier handles requests when its confidence is above the selected threshold. Ambiguous requests below the threshold are sent to the LLM router. Documentation questions with trusted context are routed to extractive QA. High-risk production incidents are escalated to human support.",
+    "answer_text": "hard safety rules",
+    "answer_start": 35
+  },
+  {
+    "id": "qa-025",
+    "doc_id": "routing",
+    "question": "When does the fine-tuned classifier handle requests?",
+    "context": "The production routing policy uses hard safety rules first. A fine-tuned classifier handles requests when its confidence is above the selected threshold. Ambiguous requests below the threshold are sent to the LLM router. Documentation questions with trusted context are routed to extractive QA. High-risk production incidents are escalated to human support.",
+    "answer_text": "when its confidence is above the selected threshold",
+    "answer_start": 101
+  },
+  {
+    "id": "qa-026",
+    "doc_id": "routing",
+    "question": "Where are ambiguous low-confidence requests sent?",
+    "context": "The production routing policy uses hard safety rules first. A fine-tuned classifier handles requests when its confidence is above the selected threshold. Ambiguous requests below the threshold are sent to the LLM router. Documentation questions with trusted context are routed to extractive QA. High-risk production incidents are escalated to human support.",
+    "answer_text": "the LLM router",
+    "answer_start": 205
+  },
+  {
+    "id": "qa-027",
+    "doc_id": "routing",
+    "question": "Where are documentation questions with trusted context routed?",
+    "context": "The production routing policy uses hard safety rules first. A fine-tuned classifier handles requests when its confidence is above the selected threshold. Ambiguous requests below the threshold are sent to the LLM router. Documentation questions with trusted context are routed to extractive QA. High-risk production incidents are escalated to human support.",
+    "answer_text": "extractive QA",
+    "answer_start": 280
+  },
+  {
+    "id": "qa-028",
+    "doc_id": "observability",
+    "question": "Which platform is used for observability?",
+    "context": "Langfuse is used for observability in the support system. A trace should record the request input, router decision, specialist or tool calls, final answer, latency, and errors. Each request receives a unique trace or request ID. Sensitive secrets must not be written into trace metadata.",
+    "answer_text": "Langfuse",
+    "answer_start": 0
+  },
+  {
+    "id": "qa-029",
+    "doc_id": "observability",
+    "question": "What identifier does each request receive?",
+    "context": "Langfuse is used for observability in the support system. A trace should record the request input, router decision, specialist or tool calls, final answer, latency, and errors. Each request receives a unique trace or request ID. Sensitive secrets must not be written into trace metadata.",
+    "answer_text": "a unique trace or request ID",
+    "answer_start": 199
+  },
+  {
+    "id": "qa-030",
+    "doc_id": "observability",
+    "question": "What should not be written into trace metadata?",
+    "context": "Langfuse is used for observability in the support system. A trace should record the request input, router decision, specialist or tool calls, final answer, latency, and errors. Each request receives a unique trace or request ID. Sensitive secrets must not be written into trace metadata.",
+    "answer_text": "Sensitive secrets",
+    "answer_start": 229
+  },
+  {
+    "id": "qa-031",
+    "doc_id": "observability",
+    "question": "What should a trace record about execution time?",
+    "context": "Langfuse is used for observability in the support system. A trace should record the request input, router decision, specialist or tool calls, final answer, latency, and errors. Each request receives a unique trace or request ID. Sensitive secrets must not be written into trace metadata.",
+    "answer_text": "latency",
+    "answer_start": 156
+  },
+  {
+    "id": "qa-032",
+    "doc_id": "docker",
+    "question": "Which tool defines the deployment stack?",
+    "context": "The deployment stack is defined with Docker Compose. The support-agent service exposes port 8000, while Open WebUI is available on host port 3000. PostgreSQL stores persistent data in a named volume. The support-agent container mounts the model and data directories and reads environment variables from the .env file.",
+    "answer_text": "Docker Compose",
+    "answer_start": 37
+  },
+  {
+    "id": "qa-033",
+    "doc_id": "docker",
+    "question": "Which port does the support-agent service expose?",
+    "context": "The deployment stack is defined with Docker Compose. The support-agent service exposes port 8000, while Open WebUI is available on host port 3000. PostgreSQL stores persistent data in a named volume. The support-agent container mounts the model and data directories and reads environment variables from the .env file.",
+    "answer_text": "8000",
+    "answer_start": 92
+  },
+  {
+    "id": "qa-034",
+    "doc_id": "docker",
+    "question": "Which host port is used by Open WebUI?",
+    "context": "The deployment stack is defined with Docker Compose. The support-agent service exposes port 8000, while Open WebUI is available on host port 3000. PostgreSQL stores persistent data in a named volume. The support-agent container mounts the model and data directories and reads environment variables from the .env file.",
+    "answer_text": "3000",
+    "answer_start": 141
+  },
+  {
+    "id": "qa-035",
+    "doc_id": "docker",
+    "question": "Where does the support-agent read environment variables from?",
+    "context": "The deployment stack is defined with Docker Compose. The support-agent service exposes port 8000, while Open WebUI is available on host port 3000. PostgreSQL stores persistent data in a named volume. The support-agent container mounts the model and data directories and reads environment variables from the .env file.",
+    "answer_text": "the .env file",
+    "answer_start": 303
+  },
+  {
+    "id": "qa-036",
+    "doc_id": "tickets",
+    "question": "What status is used for newly created tickets?",
+    "context": "Support tickets contain an ID, title, description, priority, status, and resolution. New tickets are created with status open. Escalated incidents use high priority and include the reason plus supporting evidence. Ticket search returns prior cases that may contain useful resolutions. A ticket should not be closed until the resolution has been verified.",
+    "answer_text": "open",
+    "answer_start": 121
+  },
+  {
+    "id": "qa-037",
+    "doc_id": "tickets",
+    "question": "What priority is used for escalated incidents?",
+    "context": "Support tickets contain an ID, title, description, priority, status, and resolution. New tickets are created with status open. Escalated incidents use high priority and include the reason plus supporting evidence. Ticket search returns prior cases that may contain useful resolutions. A ticket should not be closed until the resolution has been verified.",
+    "answer_text": "high priority",
+    "answer_start": 151
+  },
+  {
+    "id": "qa-038",
+    "doc_id": "tickets",
+    "question": "What should escalated incidents include?",
+    "context": "Support tickets contain an ID, title, description, priority, status, and resolution. New tickets are created with status open. Escalated incidents use high priority and include the reason plus supporting evidence. Ticket search returns prior cases that may contain useful resolutions. A ticket should not be closed until the resolution has been verified.",
+    "answer_text": "the reason plus supporting evidence",
+    "answer_start": 177
+  },
+  {
+    "id": "qa-039",
+    "doc_id": "tickets",
+    "question": "When should a ticket be closed?",
+    "context": "Support tickets contain an ID, title, description, priority, status, and resolution. New tickets are created with status open. Escalated incidents use high priority and include the reason plus supporting evidence. Ticket search returns prior cases that may contain useful resolutions. A ticket should not be closed until the resolution has been verified.",
+    "answer_text": "until the resolution has been verified",
+    "answer_start": 315
+  },
+  {
+    "id": "qa-040",
+    "doc_id": "long_context_a",
+    "question": "What is the required production health-check path?",
+    "context": "This deployment runbook contains several sections. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. For the support-agent application, the required production health-check path is /health. After checking the endpoint, operators should record the HTTP status and response time. The service should not be restarted repeatedly without first reviewing the logs.",
+    "answer_text": "/health",
+    "answer_start": 3526
+  },
+  {
+    "id": "qa-041",
+    "doc_id": "long_context_a",
+    "question": "What should operators record after checking the endpoint?",
+    "context": "This deployment runbook contains several sections. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. For the support-agent application, the required production health-check path is /health. After checking the endpoint, operators should record the HTTP status and response time. The service should not be restarted repeatedly without first reviewing the logs.",
+    "answer_text": "the HTTP status and response time",
+    "answer_start": 3588
+  },
+  {
+    "id": "qa-042",
+    "doc_id": "long_context_a",
+    "question": "What should not be done repeatedly before reviewing logs?",
+    "context": "This deployment runbook contains several sections. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. For the support-agent application, the required production health-check path is /health. After checking the endpoint, operators should record the HTTP status and response time. The service should not be restarted repeatedly without first reviewing the logs.",
+    "answer_text": "restarted repeatedly",
+    "answer_start": 3649
+  },
+  {
+    "id": "qa-043",
+    "doc_id": "long_context_a",
+    "question": "Which application is this runbook for?",
+    "context": "This deployment runbook contains several sections. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. General checks include verifying DNS, container status, environment variables, and service logs. For the support-agent application, the required production health-check path is /health. After checking the endpoint, operators should record the HTTP status and response time. The service should not be restarted repeatedly without first reviewing the logs.",
+    "answer_text": "support-agent",
+    "answer_start": 3454
+  },
+  {
+    "id": "qa-044",
+    "doc_id": "long_context_b",
+    "question": "What is the documented pool utilization warning threshold?",
+    "context": "This database operations guide explains routine checks for PostgreSQL services. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. The documented warning threshold for application pool utilization is 90 percent. If the threshold is exceeded for a sustained period, inspect long-running transactions before changing limits. High-risk corruption cases must be escalated rather than automatically repaired.",
+    "answer_text": "90 percent",
+    "answer_start": 3334
+  },
+  {
+    "id": "qa-045",
+    "doc_id": "long_context_b",
+    "question": "What should be inspected before changing connection limits?",
+    "context": "This database operations guide explains routine checks for PostgreSQL services. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. The documented warning threshold for application pool utilization is 90 percent. If the threshold is exceeded for a sustained period, inspect long-running transactions before changing limits. High-risk corruption cases must be escalated rather than automatically repaired.",
+    "answer_text": "long-running transactions",
+    "answer_start": 3407
+  },
+  {
+    "id": "qa-046",
+    "doc_id": "long_context_b",
+    "question": "Which database system is discussed in the guide?",
+    "context": "This database operations guide explains routine checks for PostgreSQL services. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. The documented warning threshold for application pool utilization is 90 percent. If the threshold is exceeded for a sustained period, inspect long-running transactions before changing limits. High-risk corruption cases must be escalated rather than automatically repaired.",
+    "answer_text": "PostgreSQL",
+    "answer_start": 59
+  },
+  {
+    "id": "qa-047",
+    "doc_id": "long_context_b",
+    "question": "What must happen in high-risk corruption cases?",
+    "context": "This database operations guide explains routine checks for PostgreSQL services. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. Operators should review connection usage, lock waits, slow queries, and recent migrations. The documented warning threshold for application pool utilization is 90 percent. If the threshold is exceeded for a sustained period, inspect long-running transactions before changing limits. High-risk corruption cases must be escalated rather than automatically repaired.",
+    "answer_text": "escalated",
+    "answer_start": 3492
+  }
+]
